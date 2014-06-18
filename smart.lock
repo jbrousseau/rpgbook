@@ -5,7 +5,8 @@
       "iron-router": {},
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
-      "phantomjs": {}
+      "phantomjs": {},
+      "profile-online": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/gadicohen/meteor-phantomjs.git",
         "tag": "v0.0.2",
         "commit": "a72eb79af068dd5d5d617ac71a42bd74e0cb52a4"
+      },
+      "profile-online": {
+        "git": "https://github.com/erundook/meteor-profile-online.git",
+        "tag": "v0.1.9",
+        "commit": "a982f18f22cb2025a02a9b38815c68e23469cd4b"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
