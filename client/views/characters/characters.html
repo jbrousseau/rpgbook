@@ -1,0 +1,17 @@
+<template name="characters">
+  <h3>List of your characters</h3>
+  <div id="characters">
+    {{#each charactersList}}
+      <div class="character {{selected}}">
+        <div class="display">
+          <a class="character-name {{name_class}}" href="/{{_id}}">
+            {{name}}
+          </a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <div id="createCharacter">
+    <input type="text" id="new-character" placeholder="New character" />
+  </div>
+</template>

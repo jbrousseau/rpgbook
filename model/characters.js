@@ -4,4 +4,4 @@
  * @module model
  * @submodule character
  */
-Character = new Meteor.Collection("character");
+Characters = new Meteor.Collection("characters");

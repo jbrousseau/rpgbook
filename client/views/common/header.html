@@ -2,14 +2,19 @@
   <header>
       <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">RPG Book</a>
+          <a class="navbar-brand" href="/">RoleBook</a>
         </div>
         <div class="navbar-collapse collapse">
+         {{#if currentUser}}
+           <ul class="nav navbar-nav">
+              <li class="active"><a href="/characters">Your characters</a></li>
+            </ul>
+          {{/if}}
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link</a></li>
+            <li class="active"><a href="/about">About</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            {{> loginButtons }}
+            <li class="active">{{> entryAccountButtons}}</li>
           </ul>
         </div>
       </div>

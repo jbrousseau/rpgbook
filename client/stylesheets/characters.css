@@ -1,0 +1,23 @@
+#characters .character {
+    padding: 3px 6px;
+}
+
+#characters .selected {
+    padding: 2px 6px;
+    background: #9be;
+    font-weight: bold;
+}
+
+#characters .character-name {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+#createCharacter {
+    padding: 3px 6px;
+    margin-top: 5px;
+}
+
+#createCharacter input {
+    width: 180px;
+}
