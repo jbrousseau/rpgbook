@@ -1,0 +1,30 @@
+<template name="charactersearch">
+    <div class="search-input">
+        {{> esInput index="characters-search-invite" placeholder="Search a character name..." }}
+    </div>
+
+    {{#ifEsIsSearching index="characters-search-invite"}}
+        <div>Loading...</div>
+    {{/ifEsIsSearching}}
+
+    <div class="results-wrapper">
+        {{#esEach index="characters-search-invite"}}
+            {{> characterresult}}
+        {{/esEach}}
+
+        {{#ifEsHasNoResults index="characters-search-invite"}}
+            <div class="no-results">No results found!</div>
+        {{/ifEsHasNoResults}}
+    </div>
+</template>
+<template name="characterresult">
+  <div class="resultCharacter {{selected}}">
+    <span class="name">{{name}}  
+    {{#if is_invited}}
+        already invited
+    {{else}}
+        <input type="button" class="invite-character" value="Invite" />
+    {{/if}}
+    </span>
+  </div>
+</template>

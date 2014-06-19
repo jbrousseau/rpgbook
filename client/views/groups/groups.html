@@ -1,0 +1,36 @@
+<template name="groups">
+<h3>Groups</h3>
+<div id="your-groups">
+  <h3>Groups you created (as game master)</h3>
+  <div id="groups">
+    {{#each groupsList}}
+      <div class="group {{selected}}">
+        <div class="destroy"></div>
+        <div class="display">
+          <a class="group-name {{name_class}}" href="/{{_id}}">
+            {{name}}
+          </a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  {{#if selected_name}}
+  <div class="details">
+    <div class="name"><h3>{{selected_name}}</h3></div>
+    <div id="invite">
+      Invite a character to join the group :
+      {{> charactersearch}}
+    </div>
+  </div>
+  {{else}}
+  <div class="none">Click a player to select</div>
+  {{/if}}
+  <div id="creategroup">
+    Create a new group :
+    <input type="text" id="new-group" placeholder="New group name" />
+  </div>
+</div>
+<div id="other-groups">
+  Other groups that your groups belong to
+</div>
+</template>

@@ -1,0 +1,17 @@
+<template name="character">
+  <h2>{{name}}</h2>
+  <div id="edit">
+    <a href="">Edit character</a>
+  </div>
+  <div id="group">
+    <h2>Your group</h2>
+    Name : XXXX
+    <a href="">Leave group</a>
+  </div>
+  <div id="invitations">
+    <h2>Invitations</h2>
+    {{#each invited_group}}
+    {{name}} <a href="">Accept</a> <a href="">declined</a>
+    {{/each}}
+  </div>
+</template>

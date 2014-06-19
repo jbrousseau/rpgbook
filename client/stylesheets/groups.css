@@ -1,35 +1,35 @@
-#characters .character {
+#groups .group {
     padding: 3px 6px;
 }
 
-#characters .selected {
+#groups .selected {
     padding: 2px 6px;
     background: #9be;
     font-weight: bold;
 }
 
-#characters .character-name {
+#groups .group-name {
     cursor: pointer;
     color: black;
     text-decoration: none;
 }
-#createCharacter {
+#creategroup {
     padding: 3px 6px;
     margin-top: 5px;
 }
 
-#createCharacter input {
+#creategroup input {
     width: 180px;
 }
 
-#characters .character {
+#groups .group {
     display: block;
     height: 50px;
     position: relative;
     overflow: hidden;
     border-top: 1px solid #ccc;
 }
-#characters .character .display {
+#groups .group .display {
     margin-left: 50px;
     height: 100%;
     width: auto;
@@ -37,7 +37,7 @@
     padding-top: 18px;
     line-height: 1;
 }
-#characters .character .destroy {
+#groups .group .destroy {
     cursor: pointer;
     position: absolute;
     left: 5px;
@@ -45,7 +45,7 @@
     height: 20px;
     width: 20px;
 }
-#characters .character .go {
+#groups .group .go {
     cursor: pointer;
     position: absolute;
     left: 30px;
@@ -53,12 +53,12 @@
     height: 20px;
     width: 20px;
 }
-#characters .character:hover .destroy {
+#groups .group:hover .destroy {
     background: url('/img/destroy.png') no-repeat 0 0;
 }
-#characters .character:hover .go {
+#groups .group:hover .go {
     background: url('/img/go.png') no-repeat 0 0;
 }
-#characters .character .destroy:hover, #characters .character .go:hover{
+#groups .group .destroy:hover, #groups .group .go:hover{
     background-position: 0 -20px;
 }

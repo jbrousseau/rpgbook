@@ -6,7 +6,8 @@
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
       "profile-online": {},
-      "accounts-entry": {}
+      "accounts-entry": {},
+      "easy-search": {}
     },
     "packages": {
       "iron-router": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/Differential/accounts-entry.git",
         "tag": "v0.7.3",
         "commit": "7facaa045d3720eeeba3420c28e48d5709188fe3"
+      },
+      "easy-search": {
+        "git": "https://github.com/matteodem/meteor-easy-search.git",
+        "tag": "v0.4.5",
+        "commit": "bcd8f108f8089a430612e88864b7a2fd26965846"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
