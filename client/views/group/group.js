@@ -20,7 +20,7 @@ Template.group.characters_group = function () {
 
 Template.group.group_posts = function () {
     var posts = null;
-    posts = Groupposts.find({ group_id: this._id});
+    posts = Groupposts.find({ group_id: this._id}, {sort: {timestamp: -1}});
     return posts;
 };
 Template.group.group_visibility_posts = function () {

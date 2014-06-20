@@ -1,5 +1,4 @@
 <template name="groups">
-<h3>Groups</h3>
 <div id="your-groups">
   <h3>Groups you created (as game master)</h3>
   <div id="groups">
@@ -30,17 +29,5 @@
     Create a new group :
     <input type="text" id="new-group" placeholder="New group name" />
   </div>
-</div>
-<div id="other-groups">
-  Other groups that your characters belong to
-   {{#each groupsCharList}}
-      <div class="groupChar">
-        <div class="displayChar">
-          <a class="group-name-char {{name_class}}" href="/{{_id}}">
-            {{name}}
-          </a>
-        </div>
-      </div>
-    {{/each}}
 </div>
 </template>

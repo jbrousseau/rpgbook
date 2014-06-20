@@ -10,9 +10,6 @@
     </div>
    <input type="button" class="roll" value="Roll a d20 dice" />
  <h2>Posts</h2>
- {{#each group_posts}}
-  {{> grouppost}}
- {{/each}}
  <div id="creategrouppost">
     <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
     <select name="visibility-post" id="visibility-post">
@@ -21,6 +18,9 @@
     {{/each}}
     </select>
   </div>
+ {{#each group_posts}}
+  {{> grouppost}}
+ {{/each}}
 </template>
 
 <template name="grouppost">

@@ -1,7 +1,7 @@
 Template.characterposts.character_posts = function () {
     var posts = null;
     if (Session.get("current_group")) {
-      posts = Characterposts.find({ character_id: { $in: Session.get("current_group").character_ids}});
+      posts = Characterposts.find({ character_id: { $in: Session.get("current_group").character_ids}}, {sort: {timestamp: -1}});
     } else {
        posts = Characterposts.find({ character_id: Session.get('selected_character')});
     }

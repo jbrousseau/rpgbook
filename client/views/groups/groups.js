@@ -17,14 +17,7 @@ Template.groups.selected_name = function () {
 Template.groups.name_class = function () {
   return this.name ? '' : 'empty';
 };
-Template.character.groupsCharList = function () {
-  var characters = null;
-  if (this.invit_group_ids) {
-    groups = Groups.find({ _id: { $in: this.invit_group_ids}});
-  
-  }
-  return characters;
-};
+
 
 Template.groups.events({
   'mousedown .group': function (evt) { // select group

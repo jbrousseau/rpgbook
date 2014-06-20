@@ -1,8 +1,5 @@
 <template name="characterposts">
- <h2>Posts</h2>
- {{#each character_posts}}
-  {{> characterpost}}
- {{/each}}
+ <h2>Publications</h2>
  <div id="createcharacterpost">
     <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
     <select name="visibility-post" id="visibility-post">
@@ -11,6 +8,9 @@
       <option value="private">Private</option>
     </select>
   </div>
+ {{#each character_posts}}
+  {{> characterpost}}
+ {{/each}}
 </template>
 
 <template name="characterpost">
