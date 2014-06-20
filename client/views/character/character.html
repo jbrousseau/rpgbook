@@ -3,15 +3,39 @@
   <div id="edit">
     <a href="">Edit character</a>
   </div>
-  <div id="group">
+  <div class="group">
     <h2>Your group</h2>
-    Name : XXXX
-    <a href="">Leave group</a>
+    {{#if your_group_name}}
+      Name : {{your_group_name}}
+      <a class="view-group" href="/group/{{your_group_name}}"> View group discussion </a>
+      <a class="leave-group" href="/{{_id}}"> Leave group</a>
+    {{else}}
+      No group
+    {{/if}}
+    <div class="characters-group">
+     Characters :
+     {{#each characters_group}}
+     <li>
+      {{name}}
+     </li>
+    {{/each}}
+    </div>
   </div>
   <div id="invitations">
-    <h2>Invitations</h2>
+    <h2>Invitations to groups :</h2>
+    <div class="groups_invit">
     {{#each invited_group}}
-    {{name}} <a href="">Accept</a> <a href="">declined</a>
+      {{> invited_group_tpl}}
     {{/each}}
+    </div>
+  </div>
+  {{> characterposts}}
+</template>
+
+<template name="invited_group_tpl">
+  <div class="group_invit">
+    <li>
+    {{name}} <a class="accept-group" href="/{{_id}}">>Accept</a> <a class="declined-group" href="/{{_id}}">>declined</a>
+    </li>
   </div>
 </template>

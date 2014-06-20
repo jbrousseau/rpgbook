@@ -4,6 +4,7 @@ Template.groups.rendered = function() {
     name: "description",
     content: "List of your groups"
   }).appendTo("head");
+  Session.set("selected_character", null);
 };
 
 Template.groups.selected = function () {
@@ -16,6 +17,14 @@ Template.groups.selected_name = function () {
 Template.groups.name_class = function () {
   return this.name ? '' : 'empty';
 };
+Template.character.groupsCharList = function () {
+  var characters = null;
+  if (this.invit_group_ids) {
+    groups = Groups.find({ _id: { $in: this.invit_group_ids}});
+  
+  }
+  return characters;
+};
 
 Template.groups.events({
   'mousedown .group': function (evt) { // select group
@@ -27,6 +36,9 @@ Template.groups.events({
   },
   'click .destroy': function () {
     Groups.remove(this._id);
+  },
+  'click .go': function () {
+    Router.go('group', {name: this.name});
   },
 });
 Template.groups.events(okCancelEvents(

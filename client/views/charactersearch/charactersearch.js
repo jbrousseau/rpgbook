@@ -23,3 +23,11 @@ Template.characterresult.is_invited = function () {
   }
   return false;
 };
+Template.characterresult.is_in_group = function () {
+  var groupId = Session.get("selected_group");
+  var character = Characters.findOne({_id: this._id, group_id: groupId});
+  if (character) {
+    return true;
+  }
+  return false;
+};

@@ -1,10 +1,32 @@
 <template name="group">
-  <h2>{{name}}</h2>
-  <div id="list_char">
-    List of characters
+   <h2>{{name}}</h2>
+   <div class="characters-group">
+     Characters :
+     {{#each characters_group}}
+     <li>
+      {{name}}
+     </li>
+    {{/each}}
+    </div>
+   <input type="button" class="roll" value="Roll a d20 dice" />
+ <h2>Posts</h2>
+ {{#each group_posts}}
+  {{> grouppost}}
+ {{/each}}
+ <div id="creategrouppost">
+    <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
+    <select name="visibility-post" id="visibility-post">
+    {{#each group_visibility_posts}}
+      <option value="{{_id}}">{{name}}</option> 
+    {{/each}}
+    </select>
   </div>
-  <div id="invite">
-    <h2>Invite characters</h2>
-    Name : XXXX
-  </div>
+</template>
+
+<template name="grouppost">
+{{#if group_post_rights}}
+ <div class="post">
+    {{owner_name}} - {{txt}} - {{visibility_name}}
+</div>
+{{/if}}
 </template>

@@ -7,7 +7,7 @@ okCancelEvents = function (selector, callbacks) {
 
   var events = {};
   events['keyup '+selector+', keydown '+selector+', focusout '+selector] =
-    function (evt) {
+    function (evt, template) {
       if (evt.type === "keydown" && evt.which === 27) {
         // escape = cancel
         cancel.call(this, evt);
@@ -17,7 +17,7 @@ okCancelEvents = function (selector, callbacks) {
         // blur/return/enter = ok/submit if non-empty
         var value = String(evt.target.value || "");
         if (value)
-          ok.call(this, value, evt);
+          ok.call(this, value, evt, template);
         else
           cancel.call(this, evt);
       }

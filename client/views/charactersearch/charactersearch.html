@@ -23,7 +23,11 @@
     {{#if is_invited}}
         already invited
     {{else}}
-        <input type="button" class="invite-character" value="Invite" />
+        {{#if is_in_group}}
+            is in this group
+        {{else}}
+            <input type="button" class="invite-character" value="Invite" />
+        {{/if}}
     {{/if}}
     </span>
   </div>

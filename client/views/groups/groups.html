@@ -6,6 +6,7 @@
     {{#each groupsList}}
       <div class="group {{selected}}">
         <div class="destroy"></div>
+        <div class="go"></div>
         <div class="display">
           <a class="group-name {{name_class}}" href="/{{_id}}">
             {{name}}
@@ -31,6 +32,15 @@
   </div>
 </div>
 <div id="other-groups">
-  Other groups that your groups belong to
+  Other groups that your characters belong to
+   {{#each groupsCharList}}
+      <div class="groupChar">
+        <div class="displayChar">
+          <a class="group-name-char {{name_class}}" href="/{{_id}}">
+            {{name}}
+          </a>
+        </div>
+      </div>
+    {{/each}}
 </div>
 </template>

@@ -1,0 +1,22 @@
+<template name="characterposts">
+ <h2>Posts</h2>
+ {{#each character_posts}}
+  {{> characterpost}}
+ {{/each}}
+ <div id="createcharacterpost">
+    <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
+    <select name="visibility-post" id="visibility-post">
+      <option value="public" selected>Public</option> 
+      <option value="group">Group only</option>
+      <option value="private">Private</option>
+    </select>
+  </div>
+</template>
+
+<template name="characterpost">
+{{#if character_post_rights}}
+ <div class="post">
+    {{owner_name}} - {{txt}} - {{visibility}}
+</div>
+{{/if}}
+</template>

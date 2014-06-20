@@ -16,7 +16,7 @@ Router.map(function() {
   this.route('character', {
     path: '/character/:name',
     waitOn: function() {
-      return [Meteor.subscribe('groups'), Meteor.subscribe('characters')];
+      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('characterposts')];
     },
     data: function() { 
       return Characters.findOne({name: this.params.name});
@@ -35,5 +35,16 @@ Router.map(function() {
       return { groupsList: Groups.find({user_id: Meteor.userId()}) }; 
     }
   });
-  this.route('group');
+  this.route('group', {
+    path: '/group/:name',
+    onBeforeAction: function() {
+      return AccountsEntry.signInRequired(this);
+    },
+    waitOn: function() {
+      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('groupposts')];
+    },
+    data: function() { 
+      return Groups.findOne({name: this.params.name});
+    }
+  });
 });
