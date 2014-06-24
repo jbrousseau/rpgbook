@@ -1,7 +1,12 @@
 <template name="character">
   <h2>{{name}}</h2>
   <div id="edit">
-    <a href="">Edit character</a>
+    Edit character
+    <input type="text" id="new-description" placeholder="Description..." value="{{description}}"/>
+    {{#each character_attributes}}
+       {{> character_attributes_tpl}}
+    {{/each}}
+    <input type="text" id="new-character-attribute" placeholder="New character attribute name..." />
   </div>
   <div class="group">
     <h2>Your group</h2>
@@ -36,6 +41,13 @@
   <div class="group_invit">
     <li>
     {{name}} <a class="accept-group" href="/{{_id}}">>Accept</a> <a class="declined-group" href="/{{_id}}">>declined</a>
+    </li>
+  </div>
+</template>
+<template name="character_attributes_tpl">
+  <div class="character_attribute">
+    <li>
+    {{name}} <input type="text" id="new-character-attribute-value" placeholder="New value..." value="{{value}}"/>
     </li>
   </div>
 </template>

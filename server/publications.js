@@ -1,6 +1,6 @@
 
 Meteor.publish("characters", function () {
-    return Characters.find({}, {fields: {name: 1, user_id: 1, invit_group_ids:1, group_id:1}});
+    return Characters.find({}, {fields: {name: 1, user_id: 1, invit_group_ids:1, group_id:1, characterattributes: 1, description: 1}});
 });
 Meteor.publish("groups", function () {
     return Groups.find({}, {fields: {name: 1, user_id: 1, character_ids: 1, invit_character_ids: 1}});

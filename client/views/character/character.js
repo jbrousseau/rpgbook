@@ -13,6 +13,16 @@ Template.character.invited_group = function () {
   }
   return groups;
 };
+Template.character.character_attributes = function () {
+  var atts = null;
+  if (this.characterattributes) {
+    var atts = this.characterattributes.map(function(data, i) {
+      data['index'] = i;
+      return data;
+    });
+  }
+  return atts;
+};
 Template.character.your_group_name = function () {
   var group_name = null;
   if (this.group_id) {
@@ -41,7 +51,27 @@ Template.character.events({
      // prevent clicks on <a> from refreshing the page.
     evt.preventDefault();
   },
-});  
+});
+Template.character.events(okCancelEvents(
+  '#new-description',
+  {
+    ok: function (text, evt, template) {
+      Characters.update(Session.get('selected_character'), {$set:{ description: text}});
+
+      evt.target.value = text;
+    }
+  })
+);
+Template.character.events(okCancelEvents(
+  '#new-character-attribute',
+  {
+    ok: function (text, evt, template) {
+      Characters.update(Session.get('selected_character'), {$push:{ characterattributes: {name: text}}});
+
+      evt.target.value = text;
+    }
+  })
+);
 Template.invited_group_tpl.events({
   'click .group_invit': function (evt) {
     // prevent clicks on <a> from refreshing the page.
@@ -63,3 +93,14 @@ Template.invited_group_tpl.events({
     Characters.update(Session.get('selected_character'), {$pull: {invit_group_ids: this._id}});
   },
 });
+Template.character_attributes_tpl.events(okCancelEvents(
+  '#new-character-attribute-value',
+  {
+    ok: function (text, evt, template) {
+      var modifier = new Object();
+      modifier['characterattributes.' + this.index + '.value'] = text;
+      Characters.update(Session.get('selected_character'), {$set: modifier});
+      evt.target.value = text;
+    }
+  })
+);
