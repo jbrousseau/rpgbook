@@ -1,27 +1,34 @@
 <template name="header">
-  <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+  <nav class="navbar navbar-fixed-top {{navbarCustomHome}}" role="navigation">
       <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a class="navbar-brand" href="/"><img src="img/titre_small.png"></a>
         </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
           <ul class="nav navbar-nav">
          {{#if currentUser}}
             <li class="{{activePage 'account-settings'}}"><a href="{{pathFor 'account-settings'}}">Account settings</a></li>
             <li class="{{activePage 'characters'}}"><a href="{{pathFor 'characters'}}">Your characters</a></li>
-            <li class="{{activePage 'groups'}}"><a href="{{pathFor 'groups'}}">Game master</a></li>
+            <li class="{{activePage 'groups'}}"><a href="{{pathFor 'groups'}}">Game sessions</a></li>
           {{/if}}
             <li class="{{activePage 'about'}}"><a href="{{pathFor 'about'}}">About</a></li>
-          {{#if getCharacter}}
-            <li class="{{activePage 'character'}}">{{getCharacter}}</li>
-          {{/if}}
+            <li class="{{activePage 'blog'}}"><a href="{{pathFor 'blog'}}">Blog</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {{> entryAccountButtons_custom}}
           </ul>
-        </nav>
+        </div>
+        <!-- /.navbar-collapse -->
       </div>
-  </header>
+       <!-- /.container-fluid -->
+  </nav>
 </template>
 <template name="entryAccountButtons_custom">
   {{#if currentUser}}

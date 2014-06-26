@@ -1,4 +1,5 @@
 <template name="group">
+  <div class="container">
    <h2>{{name}}</h2>
    <div class="characters-group">
      Characters :
@@ -21,6 +22,7 @@
  {{#each group_posts}}
   {{> grouppost}}
  {{/each}}
+ </div>
 </template>
 
 <template name="grouppost">

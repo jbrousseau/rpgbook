@@ -20,16 +20,11 @@ Template.header.getCharacter = function() {
      return false;
    }
 };
-Template.header.helpers({
-  activePage: function(routeNames) {
-    ctx = Router.current();
-    var routeNames = routeNames.split(',');
-    for (var i = 0; i < routeNames.length; i++) {
-
-      if (ctx && (ctx.route.name === routeNames[i])) {
-        return "active";
-      }
-    }
-    return '';
+Template.header.navbarCustomHome = function() {
+  ctx = Router.current();
+  if (ctx && ctx.route.name === 'home') {
+    return "navbar-home";
   }
-});
+
+  return '';
+};

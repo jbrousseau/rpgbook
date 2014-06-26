@@ -11,6 +11,9 @@ Meteor.publish("characterposts", function () {
 Meteor.publish("groupposts", function () {
     return Groupposts.find({}, {fields: {txt: 1, user_id:1, group_id: 1, visibility: 1, owner_id: 1, type: 1, timestamp: 1}});
 });
+Meteor.publish("blogposts", function () {
+    return Blogposts.find({}, {fields: {txt: 1, visibility: 1, owner_id: 1, type: 1, timestamp: 1}});
+});
 Characters.allow({
   'insert': function (userId,doc) {
     if (userId!=null && userId == doc.user_id) {
@@ -61,6 +64,17 @@ Characterposts.allow({
   }
 });
 Groupposts.allow({
+  'insert': function (userId,doc) {
+    return true;
+  },
+  'remove': function (userId,doc) {
+    return true;
+  },
+  'update': function (userId,doc) {
+    return true;
+  }
+});
+Blogposts.allow({
   'insert': function (userId,doc) {
     return true;
   },

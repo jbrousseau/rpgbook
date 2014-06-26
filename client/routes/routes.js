@@ -23,6 +23,7 @@ Router.map(function() {
     }
   });
   this.route('about');
+  this.route('blog');
   this.route('account-settings');
   this.route('groups', {
     onBeforeAction: function() {

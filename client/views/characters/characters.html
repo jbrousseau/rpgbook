@@ -1,7 +1,7 @@
 <template name="characters">
-  <h3>List of your characters</h3>
-  <div id="characters">
-    {{#each charactersList}}
+  <div class="container">
+    <h3>List of your characters</h3>
+    <div id="characters">{{#each charactersList}}
       <div class="character {{selected}}">
         <div class="destroy"></div>
         <div class="go"></div>
@@ -10,10 +10,10 @@
             {{name}}
           </a>
         </div>
-      </div>
-    {{/each}}
-  </div>
-  <div id="createCharacter">
-    <input type="text" id="new-character" placeholder="New character name" />
+      </div>{{/each}}</div>
+    <div id="createCharacter">
+      <input type="text" id="new-character" placeholder="New character name"
+      />
+    </div>
   </div>
 </template>

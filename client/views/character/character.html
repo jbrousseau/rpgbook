@@ -1,53 +1,39 @@
 <template name="character">
-  <h2>{{name}}</h2>
-  <div id="edit">
-    Edit character
-    <input type="text" id="new-description" placeholder="Description..." value="{{description}}"/>
-    {{#each character_attributes}}
-       {{> character_attributes_tpl}}
-    {{/each}}
-    <input type="text" id="new-character-attribute" placeholder="New character attribute name..." />
-  </div>
-  <div class="group">
-    <h2>Your group</h2>
-    {{#if your_group_name}}
-      Name : {{your_group_name}}
-      <a class="view-group" href="/group/{{your_group_name}}"> View group discussion </a>
-      <a class="leave-group" href="/{{_id}}"> Leave group</a>
-    {{else}}
-      No group
-    {{/if}}
-    <div class="characters-group">
-     Characters :
-     {{#each characters_group}}
-     <li>
-      {{name}}
-     </li>
-    {{/each}}
+  <div class="container">
+    <h2>{{name}}</h2>
+    <div id="edit">Edit character
+      <input type="text" id="new-description" placeholder="Description..."
+      value="{{description}}" />{{#each character_attributes}} {{> character_attributes_tpl}} {{/each}}
+      <input
+      type="text" id="new-character-attribute" placeholder="New character attribute name..."
+      />
     </div>
-  </div>
-  <div id="invitations">
-    <h2>Invitations to groups :</h2>
-    <div class="groups_invit">
-    {{#each invited_group}}
-      {{> invited_group_tpl}}
-    {{/each}}
+    <div class="group">
+      <h2>Your session</h2>{{#if your_group_name}} Name : {{your_group_name}}
+      <a class="view-group"
+      href="/group/{{your_group_name}}"> View session discussion </a>
+      <a class="leave-group" href="/{{_id}}"> Leave session</a>{{else}} No session {{/if}}
+      <div class="characters-group">Characters : {{#each characters_group}}
+        <li>{{name}}</li>{{/each}}</div>
     </div>
-  </div>
-  {{> characterposts}}
+    <div id="invitations">
+      <h2>Invitations to sessions :</h2>
+      <div class="groups_invit">{{#each invited_group}} {{> invited_group_tpl}} {{/each}}</div>
+    </div>{{> characterposts}}</div>
 </template>
-
 <template name="invited_group_tpl">
   <div class="group_invit">
-    <li>
-    {{name}} <a class="accept-group" href="/{{_id}}">>Accept</a> <a class="declined-group" href="/{{_id}}">>declined</a>
+    <li>{{name}}
+      <a class="accept-group" href="/{{_id}}">>Accept</a>
+      <a class="declined-group" href="/{{_id}}">>declined</a>
     </li>
   </div>
 </template>
 <template name="character_attributes_tpl">
   <div class="character_attribute">
-    <li>
-    {{name}} <input type="text" id="new-character-attribute-value" placeholder="New value..." value="{{value}}"/>
+    <li>{{name}}
+      <input type="text" id="new-character-attribute-value" placeholder="New value..."
+      value="{{value}}" />
     </li>
   </div>
 </template>
