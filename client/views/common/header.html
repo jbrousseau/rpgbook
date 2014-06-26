@@ -1,33 +1,36 @@
 <template name="header">
-  <header>
-      <div class="navbar navbar-default" role="navigation">
+  <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+      <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">RoleBook</a>
+          <a class="navbar-brand" href="/"><img src="img/titre_small.png"></a>
         </div>
-        <div class="navbar-collapse collapse">
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
          {{#if currentUser}}
-           <ul class="nav navbar-nav">
-              <li class="{{activePage 'account-settings'}}"><a href="{{pathFor 'account-settings'}}">Account settings</a></li>
-            </ul>
-           <ul class="nav navbar-nav">
-              <li class="{{activePage 'characters'}}"><a href="{{pathFor 'characters'}}">Your characters</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-              <li class="{{activePage 'groups'}}"><a href="{{pathFor 'groups'}}">Game master</a></li>
-            </ul>
+            <li class="{{activePage 'account-settings'}}"><a href="{{pathFor 'account-settings'}}">Account settings</a></li>
+            <li class="{{activePage 'characters'}}"><a href="{{pathFor 'characters'}}">Your characters</a></li>
+            <li class="{{activePage 'groups'}}"><a href="{{pathFor 'groups'}}">Game master</a></li>
           {{/if}}
-          <ul class="nav navbar-nav">
             <li class="{{activePage 'about'}}"><a href="{{pathFor 'about'}}">About</a></li>
-          </ul>
           {{#if getCharacter}}
-          <ul class="nav navbar-nav">
             <li class="{{activePage 'character'}}">{{getCharacter}}</li>
-          </ul>
           {{/if}}
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active">{{> entryAccountButtons}}</li>
           </ul>
-        </div>
+          <ul class="nav navbar-nav navbar-right">
+            {{> entryAccountButtons_custom}}
+          </ul>
+        </nav>
       </div>
   </header>
+</template>
+<template name="entryAccountButtons_custom">
+  {{#if currentUser}}
+    <li class="navbar-text">{{signedInAs}}</li>
+    <li><a href="/sign-out">{{t9n "signOut"}}</a></li>
+  {{else}}
+      <li class="{{activePage 'sign-in'}}"><a href="/sign-in">{{t9n "signIn"}}</a></li>
+    {{#if showCreateAccountLink}}
+        <li><a href="{{entrySignUp}}">{{t9n "signUp"}}</a></li>
+    {{/if}}
+  {{/if}}
 </template>
