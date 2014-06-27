@@ -16,3 +16,6 @@ showdown
 profile-online
 accounts-entry
 easy-search
+collectionFS
+cfs-gridfs
+cfs-ejson-file

@@ -1,0 +1,22 @@
+<template name="accountsettings">
+  <div class="container">
+    <h3>Your Account settings</h3>
+    <div class="element">Firstname :
+      <input type="text" id="firstname" value="{{firstname}}" />
+    </div>
+    <div class="element">Lastname :
+      <input type="text" id="lastname" value="{{lastname}}" />
+    </div>
+    <div class="element">Email :
+      <input type="text" id="email" value="{{email}}" />
+    </div>
+    <div class="element">Password :
+      <input type="password" id="password" value="{{password}}" />
+    </div>
+    <div class="element">Avatar :
+      <img src="/img/character/avatar_backg.png" />
+      <img src="{{avatarurl}}" />
+      <input type="file" class="avatar" value="{{avatar}}" />
+    </div>
+  </div>
+</template>

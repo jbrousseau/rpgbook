@@ -11,6 +11,7 @@ Router.configure({
     }
   },
   onBeforeAction: function() {
+    $(window).scrollTop(0);
     return $('meta[name^="description"]').remove();
   }
 });

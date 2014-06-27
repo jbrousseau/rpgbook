@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
           <ul class="nav navbar-nav">
          {{#if currentUser}}
-            <li class="{{activePage 'account-settings'}}"><a href="{{pathFor 'account-settings'}}">Account settings</a></li>
+            <li class="{{activePage 'accountsettings'}}"><a href="{{pathFor 'accountsettings'}}">Account settings</a></li>
             <li class="{{activePage 'characters'}}"><a href="{{pathFor 'characters'}}">Your characters</a></li>
             <li class="{{activePage 'groups'}}"><a href="{{pathFor 'groups'}}">Game sessions</a></li>
           {{/if}}
@@ -35,7 +35,7 @@
     <li class="navbar-text">{{signedInAs}}</li>
     <li><a href="/sign-out">{{t9n "signOut"}}</a></li>
   {{else}}
-      <li class="{{activePage 'sign-in'}}"><a href="/sign-in">{{t9n "signIn"}}</a></li>
+      <li class="{{activePage 'entrySignIn'}}"><a href="/sign-in">{{t9n "signIn"}}</a></li>
     {{#if showCreateAccountLink}}
         <li><a href="{{entrySignUp}}">{{t9n "signUp"}}</a></li>
     {{/if}}

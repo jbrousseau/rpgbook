@@ -3,7 +3,7 @@ body {
     height: 100%;
     font-family: Helvetica,Arial,sans-serif;
     color: #31579d;
-    background-color: #fff;
+    background-color: #edf0f5;
 }
 
 html {
@@ -117,7 +117,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #d87913;
-    background: url(/img/intro-bg.jpg) no-repeat bottom center scroll;
+    background: url(/img/home/intro-bg.jpg) no-repeat bottom center scroll;
     background-color: #fff;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -238,7 +238,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #d87913;
-    background: url(/img/bg-about2.jpg) no-repeat bottom center scroll;
+    background: url(/img/home/bg-about2.jpg) no-repeat bottom center scroll;
     background-color: #fff;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -252,7 +252,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #d87913;
-    background: url(/img/bg-about3.jpg) no-repeat bottom center scroll;
+    background: url(/img/home/bg-about3.jpg) no-repeat bottom center scroll;
     background-color: #fff;
     -webkit-background-size: cover;
     -moz-background-size: cover;

@@ -32,6 +32,5 @@ Template.header.navbarCustomHome = function() {
   if (ctx && ctx.route.name === 'home') {
     return "navbar-home";
   }
-
   return '';
 };

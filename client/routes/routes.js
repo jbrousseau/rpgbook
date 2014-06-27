@@ -24,7 +24,11 @@ Router.map(function() {
   });
   this.route('about');
   this.route('blog');
-  this.route('account-settings');
+  this.route('accountsettings', {
+    onBeforeAction: function() {
+      return AccountsEntry.signInRequired(this);
+    },
+  });
   this.route('groups', {
     onBeforeAction: function() {
       return AccountsEntry.signInRequired(this);
