@@ -1,4 +1,4 @@
-activePage = function(routeNames) {
+UI.registerHelper("activePage", function(routeNames) {
   ctx = Router.current();
   var routeNames = routeNames.split(',');
   for (var i = 0; i < routeNames.length; i++) {
@@ -8,5 +8,5 @@ activePage = function(routeNames) {
     }
   }
   return '';
-};
+});
   

@@ -22,6 +22,13 @@ Template.header.getCharacter = function() {
 };
 Template.header.navbarCustomHome = function() {
   ctx = Router.current();
+  //this is a little crap. TODO:find better way to do that
+  if (ctx && ctx.route.name === 'home') {
+      $('body').attr('style', 'margin-top:0px');
+  } else {
+      $('body').attr('style', 'margin-top:100px');
+  }
+  //------
   if (ctx && ctx.route.name === 'home') {
     return "navbar-home";
   }
