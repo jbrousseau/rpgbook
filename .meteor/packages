@@ -19,3 +19,4 @@ easy-search
 collectionFS
 cfs-gridfs
 cfs-ejson-file
+cfs-ui

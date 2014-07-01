@@ -28,6 +28,9 @@ Router.map(function() {
     onBeforeAction: function() {
       return AccountsEntry.signInRequired(this);
     },
+    waitOn: function() {
+      return [Meteor.subscribe('images')];
+    },
   });
   this.route('groups', {
     onBeforeAction: function() {

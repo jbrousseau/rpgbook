@@ -14,9 +14,23 @@
       <input type="password" id="password" value="{{password}}" />
     </div>
     <div class="element">Avatar :
-      <img src="/img/character/avatar_backg.png" />
-      <img src="{{avatarurl}}" />
-      <input type="file" class="avatar" value="{{avatar}}" />
+      {{> avataraccount}}
     </div>
   </div>
+</template>
+
+<template name="avataraccount">
+  {{#each avatarFile}} 
+    <img src="{{this.url}}" alt="" id={{this._id}}>
+    {{#unless this.isUploaded}}
+     {{> FS.UploadProgressBar bootstrap=true}}
+    {{/unless}}
+    {{#if this.isUploaded}}
+    <input type="file" class="avatarInput" id="{{this._id}}"/>
+    {{/if}}
+    Delete {{this.name}}: {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
+  {{/each}}
+  {{#unless avatarFile.count}}
+    <input type="file" class="avatarInput"/>
+  {{/unless}}
 </template>

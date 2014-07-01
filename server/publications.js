@@ -1,4 +1,10 @@
-
+/* global Meteor */
+/* global Characters model */
+/* global Groups model */
+/* global Characterposts model */
+/* global Groupposts model */
+/* global Blogposts model */
+/* global Images model */
 Meteor.publish("characters", function () {
     return Characters.find({}, {fields: {name: 1, user_id: 1, invit_group_ids:1, group_id:1, characterattributes: 1, description: 1}});
 });
@@ -14,16 +20,19 @@ Meteor.publish("groupposts", function () {
 Meteor.publish("blogposts", function () {
     return Blogposts.find({}, {fields: {txt: 1, visibility: 1, owner_id: 1, type: 1, timestamp: 1}});
 });
+Meteor.publish("images", function () {
+    return Images.find({});
+});
 Characters.allow({
   'insert': function (userId,doc) {
-    if (userId!=null && userId == doc.user_id) {
+    if (userId!==null && userId == doc.user_id) {
       return true;
     } else {
       return false;
     }
   },
   'remove': function (userId,doc) {
-    if (userId!=null && userId == doc.user_id) {
+    if (userId!==null && userId == doc.user_id) {
       return true;
     } else {
       return false;
@@ -35,14 +44,14 @@ Characters.allow({
 });
 Groups.allow({
   'insert': function (userId,doc) {
-    if (userId!=null && userId == doc.user_id) {
+    if (userId!==null && userId == doc.user_id) {
       return true;
     } else {
       return false;
     }
   },
   'remove': function (userId,doc) {
-    if (userId!=null && userId == doc.user_id) {
+    if (userId!==null && userId == doc.user_id) {
       return true;
     } else {
       return false;
@@ -93,6 +102,9 @@ Images.allow({
     return true;
   },
   'update': function (userId,doc) {
+    return true;
+  },
+  'download': function (userId,doc) {
     return true;
   }
 });
