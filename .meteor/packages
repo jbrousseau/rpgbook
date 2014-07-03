@@ -20,3 +20,4 @@ collectionFS
 cfs-gridfs
 cfs-ejson-file
 cfs-ui
+cfs-graphicsmagick

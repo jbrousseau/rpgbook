@@ -1,4 +1,4 @@
-/* global Meteor Router */
+/* global Meteor Router Session */
 /* global Characters model */
 /* global Groups model */
 /* global Characterposts model */
@@ -26,13 +26,16 @@ Router.map(function() {
       return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('characterposts'), Meteor.subscribe('images')];
     },
     data: function() { 
-      return Characters.findOne({name: this.params.name});
+      var char = Characters.findOne({name: this.params.name});
+      Session.set('selected_character', char._id);
+      Session.set('character_user_id', char.user_id);
+      return char;
     }
   });
   this.route('about');
   this.route('blog', {
     waitOn: function() {
-      return [Meteor.subscribe('blogposts')];
+      return [Meteor.subscribe('blogposts'), Meteor.subscribe('userData')];
     },
   });
   this.route('accountsettings', {
@@ -40,8 +43,11 @@ Router.map(function() {
       return AccountsEntry.signInRequired(this);
     },
     waitOn: function() {
-      return [Meteor.subscribe('images')];
+      return [Meteor.subscribe('images'), Meteor.subscribe('userData')];
     },
+    data: function() { 
+      return Meteor.user() ; 
+    }
   });
   this.route('groups', {
     onBeforeAction: function() {

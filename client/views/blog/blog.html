@@ -1,12 +1,14 @@
 <template name="blog">
   <div class="container">
     <h3>Blog</h3>
-    <div id="createblogpost">
-      <div class="element">Title :
-        <input type="text" id="titleblogpost" />
+    {{#if isadmin}}
+      <div id="createblogpost">
+        <div class="element">Title :
+          <input type="text" id="titleblogpost" />
+        </div>
+        <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
       </div>
-      <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
-    </div>
+    {{/if}}
     {{#each blog_posts}} 
       {{> blogpost}} 
     {{/each}}

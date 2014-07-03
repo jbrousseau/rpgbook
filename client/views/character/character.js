@@ -1,11 +1,24 @@
 /* global Meteor Template Session */
 /* global Groups Characters Images okCancelEvents */
+var editable = function() {
+  var userId = Meteor.userId();
+  var character_user_id = Session.get("character_user_id");
+  if (character_user_id == userId) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 Template.character.rendered = function() {
   document.title = '';
   return $("<meta>", {
     name: "description",
     content: "Detail of character " + ''
   }).appendTo("head");
+};
+Template.character.editable = function() {
+  return editable();
 };
 Template.character.invited_group = function () {
   var groups = null;
@@ -95,17 +108,26 @@ Template.invited_group_tpl.events({
     Characters.update(Session.get('selected_character'), {$pull: {invit_group_ids: this._id}});
   },
 });
+
+Template.character_attributes_tpl.editable = function() {
+  return editable();
+};
+
 Template.character_attributes_tpl.events(okCancelEvents(
   '#new-character-attribute-value',
   {
     ok: function (text, evt, template) {
-      var modifier = new Object();
+      var modifier = new Object({});
       modifier['characterattributes.' + this.index + '.value'] = text;
       Characters.update(Session.get('selected_character'), {$set: modifier});
-      evt.target.value = text;
+      evt.target.value = '';
     }
   })
 );
+
+Template.avatarcharacter.editable = function() {
+  return editable();
+};
 Template.avatarcharacter.events({
   'change .avatarInput': function(event, template) {
     var charId = Session.get('selected_character');

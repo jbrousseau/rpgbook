@@ -2,25 +2,45 @@
   <div class="container">
     <h2>{{name}}</h2>
      {{> avatarcharacter}}
-    <div id="edit">Edit character
-      <input type="text" id="new-description" placeholder="Description..."
-      value="{{description}}" />{{#each character_attributes}} {{> character_attributes_tpl}} {{/each}}
-      <input
-      type="text" id="new-character-attribute" placeholder="New character attribute name..."
-      />
+    <div id="chardesc">
+      {{#if editable}}
+      Edit character
+        <input type="text" id="new-description" placeholder="Description..."
+        value="{{description}}" />
+      {{else}}
+        {{description}}
+      {{/if}}
+      {{#each character_attributes}} 
+       {{> character_attributes_tpl}} 
+      {{/each}}
+       {{#if editable}}
+        <input
+        type="text" id="new-character-attribute" placeholder="New character attribute name..." />
+      {{/if}}
     </div>
-    <div class="group">
-      <h2>Your session</h2>{{#if your_group_name}} Name : {{your_group_name}}
-      <a class="view-group"
-      href="/group/{{your_group_name}}"> View session discussion </a>
-      <a class="leave-group" href="/{{_id}}"> Leave session</a>{{else}} No session {{/if}}
-      <div class="characters-group">Characters : {{#each characters_group}}
-        <li>{{name}}</li>{{/each}}</div>
+     {{#if editable}}
+      <div class="group">
+        <h2>Your session</h2>{{#if your_group_name}} Name : {{your_group_name}}
+        <a class="view-group"
+        href="/group/{{your_group_name}}"> View session discussion </a>
+        <a class="leave-group" href="/{{_id}}"> Leave session</a>
+        <div class="characters-group">Characters : 
+        {{#each characters_group}}
+          <li>{{name}}</li>
+        {{/each}}
+         </div>
+        {{else}}
+        No session 
+        {{/if}}
+      </div>
+      
+      <div id="invitations">
+        <h2>Invitations to sessions :</h2>
+        <div class="groups_invit">{{#each invited_group}} {{> invited_group_tpl}} {{/each}}</div>
+      </div>
+    {{/if}}
+    {{> characterposts}}
     </div>
-    <div id="invitations">
-      <h2>Invitations to sessions :</h2>
-      <div class="groups_invit">{{#each invited_group}} {{> invited_group_tpl}} {{/each}}</div>
-    </div>{{> characterposts}}</div>
 </template>
 <template name="invited_group_tpl">
   <div class="group_invit">
@@ -33,8 +53,12 @@
 <template name="character_attributes_tpl">
   <div class="character_attribute">
     <li>{{name}}
-      <input type="text" id="new-character-attribute-value" placeholder="New value..."
-      value="{{value}}" />
+     {{#if editable}}
+        <input type="text" id="new-character-attribute-value" placeholder="New value..."
+        value="{{value}}" />
+      {{else}}
+        : {{value}}
+      {{/if}}
     </li>
   </div>
 </template>
@@ -44,12 +68,16 @@
     {{#unless this.isUploaded}}
      {{> FS.UploadProgressBar bootstrap=true}}
     {{/unless}}
-    {{#if this.isUploaded}}
-    <input type="file" class="avatarInput" id="{{this._id}}"/>
+    {{#if editable}}
+      {{#if this.isUploaded}}
+        <input type="file" class="avatarInput" id="{{this._id}}"/>
+      {{/if}}
+      Delete {{this.name}}: {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
     {{/if}}
-    Delete {{this.name}}: {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
   {{/each}}
-  {{#unless avatarFile.count}}
-    <input type="file" class="avatarInput"/>
-  {{/unless}}
+  {{#if editable}}
+    {{#unless avatarFile.count}}
+      <input type="file" class="avatarInput"/>
+    {{/unless}}
+  {{/if}}
 </template>

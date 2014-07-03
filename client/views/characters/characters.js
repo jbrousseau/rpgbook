@@ -25,6 +25,7 @@ Template.characters.avatarFile = function() {
 Template.characters.events({
   'mousedown .character': function (evt) { // select character
     Session.set('selected_character', this._id);
+    Session.set('character_user_id', this.user_id);
   },
   'click .character': function (evt) {
     // prevent clicks on <a> from refreshing the page.

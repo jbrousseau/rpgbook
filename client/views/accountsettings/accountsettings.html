@@ -2,17 +2,21 @@
   <div class="container">
     <h3>Your Account settings</h3>
     <div class="element">Firstname :
-      <input type="text" id="firstname" value="{{firstname}}" />
+      <input type="text" id="firstname" value="{{profile.firstname}}" />
     </div>
     <div class="element">Lastname :
-      <input type="text" id="lastname" value="{{lastname}}" />
+      <input type="text" id="lastname" value="{{profile.lastname}}" />
     </div>
     <div class="element">Email :
-      <input type="text" id="email" value="{{email}}" />
+      <input type="text" id="email" value="{{address}}" readonly />
     </div>
-    <div class="element">Password :
-      <input type="password" id="password" value="{{password}}" />
+    <div class="element">Change Password :
+      Old password : <input type="password" id="oldpassword" />
+      New Password : <input type="password" id="newpassword" />
     </div>
+     <div class="element">
+       <input type="button" class="okupdatesettings" value="Update" />
+     </div>
     <div class="element">Avatar :
       {{> avataraccount}}
     </div>
