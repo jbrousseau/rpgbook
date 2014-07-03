@@ -1,6 +1,7 @@
 <template name="character">
   <div class="container">
     <h2>{{name}}</h2>
+     {{> avatarcharacter}}
     <div id="edit">Edit character
       <input type="text" id="new-description" placeholder="Description..."
       value="{{description}}" />{{#each character_attributes}} {{> character_attributes_tpl}} {{/each}}
@@ -36,4 +37,19 @@
       value="{{value}}" />
     </li>
   </div>
+</template>
+<template name="avatarcharacter">
+  {{#each avatarFile}} 
+    <img src="{{this.url}}" alt="" id={{this._id}}>
+    {{#unless this.isUploaded}}
+     {{> FS.UploadProgressBar bootstrap=true}}
+    {{/unless}}
+    {{#if this.isUploaded}}
+    <input type="file" class="avatarInput" id="{{this._id}}"/>
+    {{/if}}
+    Delete {{this.name}}: {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
+  {{/each}}
+  {{#unless avatarFile.count}}
+    <input type="file" class="avatarInput"/>
+  {{/unless}}
 </template>

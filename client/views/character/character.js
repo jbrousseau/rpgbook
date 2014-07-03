@@ -1,3 +1,5 @@
+/* global Meteor Template Session */
+/* global Groups Characters Images okCancelEvents */
 Template.character.rendered = function() {
   document.title = '';
   return $("<meta>", {
@@ -16,7 +18,7 @@ Template.character.invited_group = function () {
 Template.character.character_attributes = function () {
   var atts = null;
   if (this.characterattributes) {
-    var atts = this.characterattributes.map(function(data, i) {
+      atts = this.characterattributes.map(function(data, i) {
       data['index'] = i;
       return data;
     });
@@ -26,7 +28,7 @@ Template.character.character_attributes = function () {
 Template.character.your_group_name = function () {
   var group_name = null;
   if (this.group_id) {
-    group = Groups.findOne({ _id: this.group_id });
+    var group = Groups.findOne({ _id: this.group_id });
     Session.set('current_group', group);
     if (group) {
         group_name = group.name;
@@ -104,3 +106,27 @@ Template.character_attributes_tpl.events(okCancelEvents(
     }
   })
 );
+Template.avatarcharacter.events({
+  'change .avatarInput': function(event, template) {
+    var charId = Session.get('selected_character');
+    var files = event.target.files;
+    if (event.target.id) {
+      Images.remove(event.target.id);
+    }
+    Images.insert(files[0], function(err, fileObj) {
+      if (charId) {
+         Characters.update(Session.get('selected_character'),  {$set: {'avatarfile_id': fileObj._id }});
+      }
+    });
+  }
+});
+Template.avatarcharacter.avatarFile = function() {
+  var avatarFile = null;
+  if (Session.get('selected_character')) {
+    var character = Characters.findOne(Session.get('selected_character'));
+    if (character) {
+      avatarFile = Images.find({_id: character.avatarfile_id});
+    }
+  }
+  return avatarFile;
+};

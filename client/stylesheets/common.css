@@ -1,22 +1,26 @@
 .navbar-default {
-background-color: #ffffff;
-border-color: #e7e7e7;
+  background-color: #ffffff;
+  border-color: #e7e7e7;
 }
 a {
-color: #31579d;
-text-decoration: none;
+  color: #31579d;
+  text-decoration: none;
 }
 .navbar-static-top {
-border-color: #e7e7e7;
+  border-color: #e7e7e7;
 }
 .bs-docs-footer {
-padding-top: 40px;
-padding-bottom: 40px;
-margin-top: 100px;
-color: #777;
-text-align: center;
-border-top: 1px solid #e5e5e5;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 100px;
+  color: #777;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
 }
 .navbar-toggle .icon-bar {
-background-color: #31579d;
+  background-color: #31579d;
+}
+.avatardisplay img {
+  height: 45px;
+  padding-left: 10px;
 }

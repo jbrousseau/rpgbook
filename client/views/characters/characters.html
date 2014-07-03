@@ -10,6 +10,11 @@
             {{name}}
           </a>
         </div>
+        <div class="avatardisplay">
+          {{#each avatarFile}} 
+            <img src="{{this.url}}" alt="">
+          {{/each}}
+        </div>
       </div>{{/each}}</div>
     <div id="createCharacter">
       <input type="text" id="new-character" placeholder="New character name"

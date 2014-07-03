@@ -1,3 +1,10 @@
+/* global Meteor Router */
+/* global Characters model */
+/* global Groups model */
+/* global Characterposts model */
+/* global Groupposts model */
+/* global Blogposts model */
+/* global Images model */
 Router.map(function() {
   this.route('home', {
     path: '/'
@@ -7,7 +14,7 @@ Router.map(function() {
       return AccountsEntry.signInRequired(this);
     },
     waitOn: function() {
-      return Meteor.subscribe('characters');
+      return [Meteor.subscribe('characters'), Meteor.subscribe('images')];
     },
     data: function() { 
       return { charactersList: Characters.find({user_id: Meteor.userId()}) }; 
@@ -16,14 +23,18 @@ Router.map(function() {
   this.route('character', {
     path: '/character/:name',
     waitOn: function() {
-      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('characterposts')];
+      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('characterposts'), Meteor.subscribe('images')];
     },
     data: function() { 
       return Characters.findOne({name: this.params.name});
     }
   });
   this.route('about');
-  this.route('blog');
+  this.route('blog', {
+    waitOn: function() {
+      return [Meteor.subscribe('blogposts')];
+    },
+  });
   this.route('accountsettings', {
     onBeforeAction: function() {
       return AccountsEntry.signInRequired(this);

@@ -1,3 +1,5 @@
+/* global Template Meteor Session Router */
+/* global Characters Images okCancelEvents */
 Template.characters.rendered = function() {
   document.title = "Characters list";
   return $("<meta>", {
@@ -11,6 +13,13 @@ Template.characters.selected = function () {
 };
 Template.characters.name_class = function () {
   return this.name ? '' : 'empty';
+};
+Template.characters.avatarFile = function() {
+  var avatarFile = null;
+  if (this.avatarfile_id) {
+    avatarFile = Images.find({_id: this.avatarfile_id});
+  }
+  return avatarFile;
 };
 
 Template.characters.events({

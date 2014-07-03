@@ -6,7 +6,7 @@
 /* global Blogposts model */
 /* global Images model */
 Meteor.publish("characters", function () {
-    return Characters.find({}, {fields: {name: 1, user_id: 1, invit_group_ids:1, group_id:1, characterattributes: 1, description: 1}});
+    return Characters.find({}, {fields: {name: 1, user_id: 1, invit_group_ids:1, group_id:1, characterattributes: 1, avatarfile_id: 1, description: 1}});
 });
 Meteor.publish("groups", function () {
     return Groups.find({}, {fields: {name: 1, user_id: 1, character_ids: 1, invit_character_ids: 1}});
@@ -18,7 +18,7 @@ Meteor.publish("groupposts", function () {
     return Groupposts.find({}, {fields: {txt: 1, user_id:1, group_id: 1, visibility: 1, owner_id: 1, type: 1, timestamp: 1}});
 });
 Meteor.publish("blogposts", function () {
-    return Blogposts.find({}, {fields: {txt: 1, visibility: 1, owner_id: 1, type: 1, timestamp: 1}});
+    return Blogposts.find({}, {fields: {txt: 1, title:1, visibility: 1, user_id: 1, type: 1, timestamp: 1}});
 });
 Meteor.publish("images", function () {
     return Images.find({});

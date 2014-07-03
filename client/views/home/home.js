@@ -7,7 +7,6 @@ Template.home.rendered = function() {
 };
 Template.home.events({
   'click .page-scroll a': function(event) {
-    console.log("eeee");
     var $anchor = $(event.currentTarget);
     $('html, body').stop().animate({
       scrollTop: $($anchor.attr('href')).offset().top
