@@ -1,18 +1,20 @@
 <template name="characterposts">
- <h2>Publications</h2>
- {{#if editable}}
-  <div id="createcharacterpost">
-     <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
-     <select name="visibility-post" id="visibility-post">
-       <option value="public" selected>Public</option> 
-       <option value="group">Group only</option>
-       <option value="private">Private</option>
-     </select>
-   </div>
-  {{/if}}
- {{#each character_posts}}
-  {{> characterpost}}
- {{/each}}
+ <div class="container basic-grey">
+  <h1>Publications</h1>
+  {{#if editable}}
+   <div id="createcharacterpost">
+      <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
+      <select name="visibility-post" id="visibility-post">
+        <option value="public" selected>Public</option> 
+        <option value="group">Group only</option>
+        <option value="private">Private</option>
+      </select>
+    </div>
+   {{/if}}
+  {{#each character_posts}}
+   {{> characterpost}}
+  {{/each}}
+ </div>
 </template>
 
 <template name="characterpost">

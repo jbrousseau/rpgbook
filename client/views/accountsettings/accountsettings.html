@@ -1,40 +1,66 @@
 <template name="accountsettings">
-  <div class="container">
-    <h3>Your Account settings</h3>
-    <div class="element">Firstname :
-      <input type="text" id="firstname" value="{{profile.firstname}}" />
-    </div>
-    <div class="element">Lastname :
-      <input type="text" id="lastname" value="{{profile.lastname}}" />
-    </div>
-    <div class="element">Email :
-      <input type="text" id="email" value="{{address}}" readonly />
-    </div>
-    <div class="element">Change Password :
-      Old password : <input type="password" id="oldpassword" />
-      New Password : <input type="password" id="newpassword" />
-    </div>
-     <div class="element">
-       <input type="button" class="okupdatesettings" value="Update" />
-     </div>
-    <div class="element">Avatar :
+  <div class="container basic-grey">
+    <h1>Your Account settings
+      <span>You can update your profile here</span>
+    </h1>
+    <label>
+      <span>Avatar :</span>
       {{> avataraccount}}
-    </div>
+    </label>
+    <label>
+      <span>Firstname :</span>
+      <input type="text" id="firstname" value="{{profile.firstname}}" />
+    </label>
+    <label>
+      <span>Lastname :</span>
+      <input type="text" id="lastname" value="{{profile.lastname}}" />
+    </label>
+    <label>
+      <span>Email :</span>
+      <input type="text" id="email" value="{{address}}" readonly />
+    </label>
+    <label>
+      <span class="full">Change Password :</span>&nbsp;
+    </label>
+    <label>
+      <span>Old password :</span>
+      <input type="password" id="oldpassword" />
+    </label>
+    <label>
+     <span>New Password :</span>
+      <input type="password" id="newpassword" />
+    </label>
+    <label>
+      <span class="full"><input type="button" class="button okupdatesettings" value="Update" /></span>
+      &nbsp;
+    </label>
   </div>
 </template>
-
 <template name="avataraccount">
-  {{#each avatarFile}} 
-    <img src="{{this.url}}" alt="" id={{this._id}}>
-    {{#unless this.isUploaded}}
-     {{> FS.UploadProgressBar bootstrap=true}}
-    {{/unless}}
+  {{#each avatarFile}}
+    {{#unless this.isUploaded}} 
+      <i class="fa fa-refresh fa-spin"></i>
+    {{/unless}} 
     {{#if this.isUploaded}}
-    <input type="file" class="avatarInput" id="{{this._id}}"/>
-    {{/if}}
-    Delete {{this.name}}: {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
-  {{/each}}
+      <div class="avatarimg">
+        <img class="avatarimg" src="{{this.url}}" alt="" id={{this._id}}>
+      </div>
+      <div class="upload">
+        <div class="title">Choose an image to upload</div>
+        <input type="file" class="upload avatarInput"
+        id="{{this._id}}" />
+      </div>
+      <span>Image avatar :</span> 
+      {{> FS.DeleteButton class="btn btn-danger btn-xs"}} 
+    {{/if}} 
+  {{/each}} 
   {{#unless avatarFile.count}}
-    <input type="file" class="avatarInput"/>
+  <div class="avatarimg">
+    <img class="avatarimg" src="/img/character/blanck_avatar.png" alt="" id={{this._id}}>
+  </div>
+  <div class="upload">
+    <div class="title">Choose an image to upload</div>
+    <input type="file" class="upload avatarInput" />
+   </div>
   {{/unless}}
 </template>

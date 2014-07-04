@@ -1,46 +1,53 @@
 <template name="character">
-  <div class="container">
-    <h2>{{name}}</h2>
-     {{> avatarcharacter}}
-    <div id="chardesc">
-      {{#if editable}}
-      Edit character
-        <input type="text" id="new-description" placeholder="Description..."
-        value="{{description}}" />
-      {{else}}
-        {{description}}
-      {{/if}}
-      {{#each character_attributes}} 
-       {{> character_attributes_tpl}} 
-      {{/each}}
-       {{#if editable}}
-        <input
-        type="text" id="new-character-attribute" placeholder="New character attribute name..." />
-      {{/if}}
-    </div>
-     {{#if editable}}
-      <div class="group">
-        <h2>Your session</h2>{{#if your_group_name}} Name : {{your_group_name}}
-        <a class="view-group"
-        href="/group/{{your_group_name}}"> View session discussion </a>
-        <a class="leave-group" href="/{{_id}}"> Leave session</a>
-        <div class="characters-group">Characters : 
-        {{#each characters_group}}
-          <li>{{name}}</li>
-        {{/each}}
-         </div>
-        {{else}}
-        No session 
-        {{/if}}
-      </div>
-      
-      <div id="invitations">
-        <h2>Invitations to sessions :</h2>
-        <div class="groups_invit">{{#each invited_group}} {{> invited_group_tpl}} {{/each}}</div>
-      </div>
+  <div class="container basic-grey">
+    <h1>{{name}}</h1>
+    {{> avatarcharacter}}
+    <label><span>Character description</span>
+    {{#if editable}}
+     <textarea rows="4" cols="50" type="text" id="new-description" placeholder="Description...">{{description}}</textarea>
+    {{else}}
+       <div class="attribute-readonly">{{description}}</div>
     {{/if}}
-    {{> characterposts}}
+    </label>
+    {{#each character_attributes}} 
+     {{> character_attributes_tpl}} 
+    {{/each}}
+    {{#if editable}}
+      <input
+      type="text" id="new-character-attribute" placeholder="New character attribute name..." />
+    {{/if}}
+  </div>
+  {{#if editable}}
+    <div class="container basic-grey">
+        <div class="group">
+          <h1>Your session</h1>{{#if your_group_name}} Session name : {{your_group_name}}
+          <p>
+            <input type="button" class="button view-group" value="View session" />
+            <input type="button" class="button leave-group"  id="leave{{_id}}" value="Leave session" />
+          </p>
+          <div class="characters-group">Characters in this session : 
+          {{#each characters_group}}
+            <li><a href="/character/{{name}}">{{name}}</a></li>
+          {{/each}}
+           </div>
+          {{else}}
+          No session 
+          {{/if}}
+        </div>
+        <div id="invitations">
+          <span>Invitations to sessions :</span>
+          <div class="groups_invit">
+            {{#each invited_group}} 
+             {{> invited_group_tpl}} 
+            {{/each}}
+            {{#unless invited_group}} 
+              no invitation
+            {{/unless}}
+          </div>
+        </div>
     </div>
+  {{/if}}
+  {{> characterposts}}
 </template>
 <template name="invited_group_tpl">
   <div class="group_invit">
@@ -51,33 +58,46 @@
   </div>
 </template>
 <template name="character_attributes_tpl">
-  <div class="character_attribute">
-    <li>{{name}}
-     {{#if editable}}
-        <input type="text" id="new-character-attribute-value" placeholder="New value..."
-        value="{{value}}" />
-      {{else}}
-        : {{value}}
-      {{/if}}
-    </li>
-  </div>
-</template>
-<template name="avatarcharacter">
-  {{#each avatarFile}} 
-    <img src="{{this.url}}" alt="" id={{this._id}}>
-    {{#unless this.isUploaded}}
-     {{> FS.UploadProgressBar bootstrap=true}}
-    {{/unless}}
-    {{#if editable}}
-      {{#if this.isUploaded}}
-        <input type="file" class="avatarInput" id="{{this._id}}"/>
-      {{/if}}
-      Delete {{this.name}}: {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
+  <label><span>{{name}}</span>
+   {{#if editable}}
+      <input type="text" id="new-character-attribute-value" placeholder="New value..."
+      value="{{value}}" />
+    {{else}}
+      <div class="attribute-readonly">{{value}} &nbsp;</div>
     {{/if}}
-  {{/each}}
+  </label>
+</template>
+
+<template name="avatarcharacter">
+  {{#each avatarFile}}
+    {{#unless this.isUploaded}} 
+      <i class="fa fa-refresh fa-spin"></i>
+    {{/unless}} 
+    {{#if this.isUploaded}}
+      <div class="avatarimg avatarimgcenter">
+        <img class="avatarimg" src="{{this.url}}" alt="" id={{this._id}}>
+      </div>
+      {{#if editable}}
+        <div class="upload">
+          <div class="title">Choose an image to upload</div>
+          <input type="file" class="upload avatarInput"
+          id="{{this._id}}" />
+        </div>
+        <label><span>Image avatar :</span> 
+        {{> FS.DeleteButton class="btn btn-danger btn-xs"}} 
+        </label>
+      {{/if}} 
+    {{/if}} 
+  {{/each}} 
+  {{#unless avatarFile.count}}
+  <div class="avatarimg avatarimgcenter">
+    <img class="avatarimg" src="/img/character/blanck_avatar.png" alt="" id={{this._id}}>
+  </div>
   {{#if editable}}
-    {{#unless avatarFile.count}}
-      <input type="file" class="avatarInput"/>
-    {{/unless}}
-  {{/if}}
+    <div class="upload">
+      <div class="title">Choose an image to upload</div>
+      <input type="file" class="upload avatarInput" />
+     </div>
+   {{/if}} 
+  {{/unless}}
 </template>

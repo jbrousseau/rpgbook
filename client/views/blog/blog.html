@@ -1,22 +1,25 @@
 <template name="blog">
   <div class="container">
-    <h3>Blog</h3>
-    {{#if isadmin}}
-      <div id="createblogpost">
-        <div class="element">Title :
-          <input type="text" id="titleblogpost" />
-        </div>
-        <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
-      </div>
-    {{/if}}
-    {{#each blog_posts}} 
-      {{> blogpost}} 
-    {{/each}}
+    <h2>Blog</h2>
   </div>
+  {{#if isadmin}}
+    <div class="container basic-grey" id="createblogpost">
+      <div class="element">Title :
+        <input type="text" id="titleblogpost" />
+      </div>
+      <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
+    </div>
+  {{/if}}
+  {{#each blog_posts}} 
+    {{> blogpost}} 
+  {{/each}}
 </template>
 
 <template name="blogpost">
-  <div class="post">
-   {{title}} - {{txt}} - {{user_name}}
+  <div class="container basic-grey">
+  <h1>{{title}}
+    <span>{{user_name}}</span>
+  </h1>
+   <span>{{txt}}</span>
   </div>
 </template>

@@ -27,15 +27,17 @@ Template.characters.events({
     Session.set('selected_character', this._id);
     Session.set('character_user_id', this.user_id);
   },
-  'click .character': function (evt) {
+  'click .display, click .avatardisplay': function (evt) {
+    // prevent clicks on <a> from refreshing the page.
+    //evt.preventDefault();
+    Router.go('character', {name: this.name});
+  },
+  'click .character-name': function (evt) {
     // prevent clicks on <a> from refreshing the page.
     evt.preventDefault();
   },
   'click .destroy': function () {
     Characters.remove(this._id);
-  },
-  'click .go': function () {
-    Router.go('character', {name: this.name});
   },
 });
 Template.characters.events(okCancelEvents(

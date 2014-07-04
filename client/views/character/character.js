@@ -1,4 +1,4 @@
-/* global Meteor Template Session */
+/* global Meteor Template Session Router */
 /* global Groups Characters Images okCancelEvents */
 var editable = function() {
   var userId = Meteor.userId();
@@ -64,7 +64,13 @@ Template.character.events({
     Groups.update(Session.get("current_group")._id, {$pull: {character_ids: Session.get('selected_character')}});
     Characters.update(Session.get('selected_character'), {$unset: {group_id: this._id}});
      // prevent clicks on <a> from refreshing the page.
-    evt.preventDefault();
+    //evt.preventDefault();
+  },
+  'click .view-group': function (evt) {
+      var group = Session.get('current_group');
+      if (group) {
+        Router.go('group', {name: group.name});
+      }
   },
 });
 Template.character.events(okCancelEvents(
@@ -83,7 +89,7 @@ Template.character.events(okCancelEvents(
     ok: function (text, evt, template) {
       Characters.update(Session.get('selected_character'), {$push:{ characterattributes: {name: text}}});
 
-      evt.target.value = text;
+      evt.target.value = '';
     }
   })
 );
@@ -120,7 +126,7 @@ Template.character_attributes_tpl.events(okCancelEvents(
       var modifier = new Object({});
       modifier['characterattributes.' + this.index + '.value'] = text;
       Characters.update(Session.get('selected_character'), {$set: modifier});
-      evt.target.value = '';
+      evt.target.value = text;
     }
   })
 );

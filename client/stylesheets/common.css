@@ -20,7 +20,166 @@ a {
 .navbar-toggle .icon-bar {
   background-color: #31579d;
 }
-.avatardisplay img {
-  height: 45px;
-  padding-left: 10px;
+.avatarimg
+{
+    display: inline-block;
+    position: relative;
+
+}
+div.avatarimg 
+{
+    height: 110px;
+    padding-bottom: 130px;
+}
+div.avatarimgcenter
+{
+    display: block;
+    padding-left: 125px;
+    margin-right: auto;
+}
+.avatarimgcenter:after
+{
+    left: auto!important;
+}
+.avatarimg img
+{
+    display: block;
+    left: 9px;
+    top: 9px;
+    z-index: 100;
+}
+.avatarimg:after
+{
+    background-image: url(/img/character/avatar_backg.png);
+    content: '';
+    width: 128px;
+    height: 132px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+/* Basic Grey */
+.basic-grey {
+    width: 460px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    background: #EEE;
+    padding: 20px 30px 20px 30px;
+    font: 12px Georgia, "Times New Roman", Times, serif;
+    color: #31579d;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #DADADA;
+}
+.basic-grey h1 {
+    font: 25px Georgia, "Times New Roman", Times, serif;
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom: 1px solid #DADADA;
+    margin: -10px -30px 30px -30px;
+    color: #31579d;
+}
+.basic-grey h1>span {
+    display: block;
+    font-size: 11px;
+}
+.basic-grey label {
+    display: block;
+    margin: 0px 0px 5px;
+}
+.basic-grey label>span {
+    float: left;
+    width: 110px;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #888;
+}
+.basic-grey label>span.full {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #888;
+}
+.basic-grey input[type="text"],input[type="password"], .basic-grey input[type="email"], .basic-grey textarea,.basic-grey select{
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 24px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 70%;
+    font: normal 12px/12px Georgia, "Times New Roman", Times, serif;
+}
+.basic-grey select {
+    background: #FFF url('down-arrow.png') no-repeat right;
+    background: #FFF url('down-arrow.png') no-repeat right);
+    appearance:none;
+    -webkit-appearance:none; 
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width: 72%;
+    height: 30px;
+}
+.basic-grey textarea{
+    height:100px;
+}
+.basic-grey .button {
+    background: #E48F8F;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+}
+.basic-grey .button:hover {
+    background: #CF7A7A
+}
+div.attribute-readonly {
+    padding-top: 10px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    width: 70%;
+}
+div.upload {
+        top:0;
+        left:0;
+        margin:9px;
+        cursor:pointer;
+        overflow:hidden;
+        padding:20px 60px;
+        text-align:center;
+        position:relative;
+        background-color:#f6f7f8;
+        border:solid 1px #d2d2d7;}
+    div.title {
+        color:#3b5998;
+        font-size:14px;
+        font-weight:bold;
+        font-family:tahoma, arial, sans-serif;}
+    input.upload {
+        right:0;
+        margin:0;
+        bottom:0;
+        padding:0;
+        opacity:0;
+        height:300px;
+        outline:none;
+        cursor:inherit;
+        position:absolute;
+        font-size:1000px !important;}
+    span.upload-path {
+        text-align: center;
+        margin:20px;
+        display:block;
+        font-size: 80%;
+        color:#3b5998;
+        font-weight:bold;
+        font-family:tahoma, arial, sans-serif;
 }

@@ -1,16 +1,24 @@
 <template name="group">
-  <div class="container">
-   <h2>{{name}}</h2>
+  <div class="container basic-grey">
+   <h1>{{name}}</h1>
    <div class="characters-group">
      Characters :
      {{#each characters_group}}
      <li>
-      {{name}}
+      <a href="/character/{{name}}">{{name}}</a>
      </li>
     {{/each}}
     </div>
-   <input type="button" class="roll" value="Roll a d20 dice" />
- <h2>Posts</h2>
+    <input type="image" src="/img/dice/d4.png" class="roll4" alt="Roll a d4 dice" />
+    <input type="image" src="/img/dice/d6.png" class="roll6" alt="Roll a d6 dice" />
+    <input type="image" src="/img/dice/d8.png" class="roll8" alt="Roll a d8 dice" />
+    <input type="image" src="/img/dice/d10.png" class="roll10" alt="Roll a d10 dice" />
+    <input type="image" src="/img/dice/d12.png" class="roll12" alt="Roll a d12 dice" />
+    <input type="image" src="/img/dice/d20.png" class="roll20" alt="Roll a d20 dice" />
+    <input type="image" src="/img/dice/d100.png" class="roll100" alt="Roll a d100 dice" />
+  </div>
+ <div class="container basic-grey">
+ <h1>Posts</h1>
  <div id="creategrouppost">
     <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
     <select name="visibility-post" id="visibility-post">

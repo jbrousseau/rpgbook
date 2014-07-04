@@ -1,28 +1,28 @@
 <template name="groups">
-  <div class="container">
-    <div id="your-groups">
-      <h3>Sessions you created (as game master)</h3>
-      <div id="groups">{{#each groupsList}}
-        <div class="group {{selected}}">
-          <div class="destroy"></div>
-          <div class="go"></div>
-          <div class="display">
-            <a class="group-name {{name_class}}" href="/{{_id}}">
-            {{name}}
-          </a>
-          </div>
-        </div>{{/each}}</div>{{#if selected_name}}
-      <div class="details">
-        <div class="name">
-          <h3>{{selected_name}}</h3>
+  <div class="container basic-grey">
+    <h1>Sessions you created (as game master)
+      <span>Edit one session by clicking on it (to invite characters). You can delete it, or view one session.</span>
+    </h1>
+    <div id="groups">{{#each groupsList}}
+      <div class="group {{selected}}">
+        <div class="destroy"></div>
+        <div class="go"></div>
+        <div class="display">
+          <a class="group-name {{name_class}}" href="/{{_id}}">
+          {{name}}
+        </a>
         </div>
-        <div id="invite">Invite a character to join the session : {{> charactersearch}}</div>
-      </div>{{else}}
-      <div class="none">Click a player to select</div>{{/if}}
-      <div id="creategroup">Create a new session :
-        <input type="text" id="new-group" placeholder="New session name"
-        />
+      </div>{{/each}}</div>{{#if selected_name}}
+    <div class="details">
+      <div class="name">
+        <h3>{{selected_name}}</h3>
       </div>
+      <div id="invite">Invite a character to join the session : {{> charactersearch}}</div>
+    </div>{{else}}
+    <div class="none">Click a player to select</div>{{/if}}
+    <div id="creategroup">Create a new session :
+      <input type="text" id="new-group" placeholder="New session name"
+      />
     </div>
   </div>
 </template>
