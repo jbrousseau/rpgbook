@@ -6,8 +6,14 @@
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
       "profile-online": {},
-      "accounts-entry": {},
-      "easy-search": {},
+      "accounts-entry": {
+        "git": "https://github.com/Differential/accounts-entry.git",
+        "branch": "master"
+      },
+      "easy-search": {
+        "git": "https://github.com/matteodem/meteor-easy-search.git",
+        "branch": "master"
+      },
       "collectionFS": {},
       "cfs-ui": {}
     },
@@ -24,8 +30,8 @@
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.3.0-1",
-        "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
+        "tag": "v0.3.3",
+        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
       },
       "profile-online": {
         "git": "https://github.com/erundook/meteor-profile-online.git",
@@ -34,13 +40,13 @@
       },
       "accounts-entry": {
         "git": "https://github.com/Differential/accounts-entry.git",
-        "tag": "v0.7.3",
-        "commit": "7facaa045d3720eeeba3420c28e48d5709188fe3"
+        "branch": "master",
+        "commit": "4d830f21b3e084a7896869d5b28d1755327845c4"
       },
       "easy-search": {
         "git": "https://github.com/matteodem/meteor-easy-search.git",
-        "tag": "v0.4.55",
-        "commit": "2c2a4d2d9a905530dd6f076b585bafbd0c40e5ca"
+        "branch": "master",
+        "commit": "4d57bf0fe45813fcdace9be4a17a61a41c9666de"
       },
       "collectionFS": {
         "git": "https://github.com/CollectionFS/Meteor-CollectionFS.git",
@@ -61,6 +67,11 @@
         "git": "https://github.com/softwarerero/meteor-accounts-t9n.git",
         "tag": "v0.0.5",
         "commit": "ad9539a8818049d5d9fa050d8b2a1f62706483b1"
+      },
+      "simple-form": {
+        "git": "https://github.com/Differential/simple-form.git",
+        "tag": "v0.1.8",
+        "commit": "1ea0d3621b333e6f24f37e0e93efd3c081068716"
       },
       "cfs-base-package": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-base-package.git",
@@ -84,8 +95,8 @@
       },
       "cfs-access-point": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-access-point.git",
-        "tag": "v0.0.30",
-        "commit": "a1a02ef8d145aae414bf9fe483f5944a24e35bf5"
+        "tag": "v0.0.31",
+        "commit": "e2ccc9cdcfdf1a26d40acaeff3f3a6b5324e1ef6"
       },
       "cfs-worker": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-worker.git",
@@ -96,6 +107,11 @@
         "git": "https://github.com/CollectionFS/Meteor-cfs-upload-http.git",
         "tag": "v0.0.12",
         "commit": "774bf581e0f3da269dc842672ed6c2da09fd2bdf"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
       },
       "cfs-filesaver": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-filesaver.git",

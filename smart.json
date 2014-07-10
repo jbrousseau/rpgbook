@@ -4,8 +4,14 @@
     "bootstrap-3": {},
     "accounts-ui-bootstrap-3": {},
     "profile-online": {},
-    "accounts-entry": {},
-    "easy-search": {},
+    "accounts-entry": {
+      "git":"https://github.com/Differential/accounts-entry.git",
+      "branch":"master"
+    },
+    "easy-search":  {
+      "git":"https://github.com/matteodem/meteor-easy-search.git",
+      "branch":"master"
+    },
     "collectionFS": {},
     "cfs-ui": {}
   }
