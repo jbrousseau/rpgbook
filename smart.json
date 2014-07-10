@@ -2,15 +2,14 @@
   "packages": {
     "iron-router": {},
     "bootstrap-3": {},
-    "accounts-ui-bootstrap-3": {},
     "profile-online": {},
     "accounts-entry": {
-      "git":"https://github.com/Differential/accounts-entry.git",
-      "branch":"master"
+      "git": "https://github.com/Differential/accounts-entry.git",
+      "branch": "master"
     },
-    "easy-search":  {
-      "git":"https://github.com/matteodem/meteor-easy-search.git",
-      "branch":"master"
+    "easy-search": {
+      "git": "https://github.com/matteodem/meteor-easy-search.git",
+      "branch": "master"
     },
     "collectionFS": {},
     "cfs-ui": {}

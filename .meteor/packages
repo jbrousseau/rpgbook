@@ -11,7 +11,6 @@ accounts-twitter
 audit-argument-checks
 iron-router
 bootstrap-3
-accounts-ui-bootstrap-3
 showdown
 profile-online
 accounts-entry
@@ -21,3 +20,5 @@ cfs-ejson-file
 cfs-ui
 cfs-graphicsmagick
 easy-search
+service-configuration
+accounts-ui
