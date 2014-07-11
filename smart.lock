@@ -35,12 +35,12 @@
       "accounts-entry": {
         "git": "https://github.com/Differential/accounts-entry.git",
         "branch": "master",
-        "commit": "4d830f21b3e084a7896869d5b28d1755327845c4"
+        "commit": "5cbe67e0d2adc2ae4d0e9f18be3ed49d469c3a40"
       },
       "easy-search": {
         "git": "https://github.com/matteodem/meteor-easy-search.git",
         "branch": "master",
-        "commit": "4d57bf0fe45813fcdace9be4a17a61a41c9666de"
+        "commit": "58e0425c533944ee418f0146b35861559b9cca3a"
       },
       "collectionFS": {
         "git": "https://github.com/CollectionFS/Meteor-CollectionFS.git",

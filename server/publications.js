@@ -47,8 +47,14 @@ Characters.allow({
       return false;
     }
   },
-  'update': function (userId,doc) {
+  'update': function (userId,doc,fieldNames) {
+    if (userId!==null && userId == doc.user_id) {
       return true;
+    } else if (fieldNames.indexOf('invit_group_ids') >=0 && fieldNames.length==1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 Groups.allow({
@@ -66,41 +72,85 @@ Groups.allow({
       return false;
     }
   },
-  'update': function (userId,doc) {
+  'update': function (userId,doc, fieldNames) {
+    if (userId!==null && userId == doc.user_id) {
       return true;
+    } else if (fieldNames.indexOf('character_ids') >=0 
+        && fieldNames.indexOf('invit_character_ids') >=0
+        && fieldNames.length==2) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 Characterposts.allow({
   'insert': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   },
   'remove': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   },
   'update': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 Groupposts.allow({
   'insert': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   },
   'remove': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   },
   'update': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 Blogposts.allow({
   'insert': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   },
   'remove': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   },
   'update': function (userId,doc) {
-    return true;
+    if (userId!==null && userId == doc.user_id) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 Images.allow({

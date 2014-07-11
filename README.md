@@ -11,6 +11,15 @@ Build on Meteor.js
 
 ## Installation
 
+**install meteor and Atmosphere package manager :
+```sh
+sudo curl https://install.meteor.com | /bin/sh
+npm install -g meteorite
+```sh
+**install graphicsmagick :
+```sh
+http://www.graphicsmagick.org/INSTALL-unix.html
+```sh
 **With [meteor](http://meteor.com) installed and [meteorite](http://atmospherejs.com/docs/installing) installed**
 ```sh
 # Get the project
@@ -18,7 +27,7 @@ $ git clone https://github.com/jbrousseau/rpgbook.git
 # go to the project directory
 $ cd rpgbook
 # install dependencies and start the server on port XXXX
-$ mrt --port XXXX
+$ mrt --port XXXX --settings private/local-settings.json
 ```
 ## License
 
