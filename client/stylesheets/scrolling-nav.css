@@ -132,10 +132,12 @@ a:focus {
 
 .brand-heading {
     font-size: 40px;
+    text-shadow: 0 0 1px rgba(17, 17, 17, 0.4), 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .intro-text {
     font-size: 18px;
+    text-shadow: 0 0 1px rgba(17, 17, 17, 0.4), 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 @media(min-width:767px) {

@@ -6,6 +6,10 @@ a {
   color: #31579d;
   text-decoration: none;
 }
+.col-lg-8 {
+  text-shadow: 0 0 1px rgba(17, 17, 17, 0.4), 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+    
 .navbar-static-top {
   border-color: #e7e7e7;
 }
