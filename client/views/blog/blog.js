@@ -10,7 +10,7 @@ Template.blog.blog_posts = function() {
     }
   });
 };
-Template.blog.isadmin = function() {
+var isadmin = function() {
   if (Meteor.user() && Meteor.user().profile.admin && Meteor.user().profile.admin == 1) {
     return true;
   }
@@ -18,6 +18,9 @@ Template.blog.isadmin = function() {
     return false;
   }
 };
+Template.blog.isadmin = function() {
+  return isadmin();
+}
 Template.blog.events(okCancelEvents('#new-post', {
   ok: function(text, evt, template) {
     Blogposts.insert({
@@ -29,6 +32,9 @@ Template.blog.events(okCancelEvents('#new-post', {
     evt.target.value = '';
   }
 }));
+Template.blogpost.isadmin = function() {
+  return isadmin();
+}
 Template.blogpost.user_name = function() {
   var user = Meteor.users.findOne({
     _id: this.user_id
@@ -42,3 +48,8 @@ Template.blogpost.user_name = function() {
 Template.blogpost.display_date = function() {
   return moment(this.timestamp).format('MMMM Do YYYY, h:mm:ss a');
 }
+Template.blogpost.events({
+  'click .delete': function (evt) {
+    Blogposts.remove({_id:this._id});
+  },
+});

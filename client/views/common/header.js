@@ -1,3 +1,5 @@
+/* global Meteor Template Deps Router */
+
 Template.header.displayName = function () {
   var user = Meteor.user();
   if (!user)
@@ -21,7 +23,7 @@ Template.header.getCharacter = function() {
    }
 };
 Template.header.navbarCustomHome = function() {
-  ctx = Router.current();
+  var ctx = Router.current();
   //this is a little crap. TODO:find better way to do that
   if (ctx && ctx.route.name === 'home') {
       $('body').attr('style', 'margin-top:0px');
@@ -34,3 +36,13 @@ Template.header.navbarCustomHome = function() {
   }
   return '';
 };
+Template.header.events({
+  'click .navbar-nav li a': function (evt) {
+    $(".navbar-collapse").collapse('hide');
+  },
+});
+Template.entryAccountButtons_custom.events({
+  'click .navbar-nav li a': function (evt) {
+    $(".navbar-collapse").collapse('hide');
+  },
+});
