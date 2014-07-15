@@ -91,7 +91,6 @@ Template.character.events({
   },
   'change .rules_select': function (evt) {
       var rule = Rules.findOne({title:evt.target.value});
-      console.log("eee");
       if (rule && !this.rules_name && evt.target.value!='none') {
         Characters.update(Session.get('selected_character'), {$set: {rules_name: evt.target.value},
                                                             $push:{ characterattributes: { $each: rule.attributes } } });
