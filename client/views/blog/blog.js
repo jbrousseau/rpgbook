@@ -1,7 +1,7 @@
 /* global Template Meteor */
 /* global Blogposts */
 /* global Users */
-/* global okCancelEvents */
+/* global okCancelEvents moment */
 
 Template.blog.blog_posts = function() {
   return Blogposts.find({}, {
@@ -38,4 +38,7 @@ Template.blogpost.user_name = function() {
   } else {
     return '';
   }
+}
+Template.blogpost.display_date = function() {
+  return moment(this.timestamp).format('MMMM Do YYYY, h:mm:ss a');
 }

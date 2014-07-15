@@ -1,5 +1,5 @@
 /* global Meteor Template Session Router */
-/* global Groups Characters Images okCancelEvents */
+/* global Groups Characters Images Rules okCancelEvents */
 var editable = function() {
   var userId = Meteor.userId();
   var character_user_id = Session.get("character_user_id");
@@ -19,6 +19,23 @@ Template.character.rendered = function() {
 };
 Template.character.editable = function() {
   return editable();
+};
+Template.character.listrules = function() {
+  return Rules.find({});
+};
+Template.character.chooserule = function() {
+  if (!this.rules_name && editable() ) {
+    return true;
+  } else {
+    return false;
+  }
+};
+Template.character.selected_rule = function(rule) {
+  if (rule && rule.title && rule.title==this.rules_name) {
+    return true;
+  } else {
+    return false;
+  }
 };
 Template.character.invited_group = function () {
   var groups = null;
@@ -71,6 +88,15 @@ Template.character.events({
       if (group) {
         Router.go('group', {name: group.name});
       }
+  },
+  'change .rules_select': function (evt) {
+      var rule = Rules.findOne({title:evt.target.value});
+      console.log("eee");
+      if (rule && !this.rules_name && evt.target.value!='none') {
+        Characters.update(Session.get('selected_character'), {$set: {rules_name: evt.target.value},
+                                                            $push:{ characterattributes: { $each: rule.attributes } } });
+      }
+      evt.preventDefault();
   },
 });
 Template.character.events(okCancelEvents(

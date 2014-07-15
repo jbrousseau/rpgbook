@@ -23,7 +23,9 @@ Router.map(function() {
   this.route('character', {
     path: '/character/:name',
     waitOn: function() {
-      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('characterposts'), Meteor.subscribe('images')];
+      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), 
+      Meteor.subscribe('characterposts'), Meteor.subscribe('images'), 
+      Meteor.subscribe('rules')];
     },
     data: function() { 
       var char = Characters.findOne({name: this.params.name});

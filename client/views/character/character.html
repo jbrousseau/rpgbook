@@ -9,6 +9,18 @@
        <div class="attribute-readonly">{{description}}</div>
     {{/if}}
     </label>
+    <label><span>Rules</span>
+   {{#if chooserule}}
+      <SELECT class="rules_select" name="rules" size="1">
+        <OPTION value="none">No specific rule set / system</OPTION>
+      {{#each listrules}} 
+        <OPTION>{{title}}</OPTION>
+      {{/each}}
+      </SELECT>
+    {{else}}
+      <div class="attribute-readonly">{{rules_name}} &nbsp;</div>
+    {{/if}}
+  </label>
     {{#each character_attributes}} 
      {{> character_attributes_tpl}} 
     {{/each}}
