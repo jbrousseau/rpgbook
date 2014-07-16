@@ -1,27 +1,37 @@
 <template name="group">
   <div class="container">
    <div class="row">
-     <div class="col-sm-6 col-sm-offset-3 basic-grey">
-      <h1>{{name}}</h1>
-      <div class="characters-group">
-        Characters :
-        {{#each characters_group}}
+     <div class="col-sm-3">
+      <div class="basic-grey">
+       <h1>{{name}}</h1>
+       <div class="characters-group">
+         Characters :
+         {{#each characters_group}}
+          {{> character_group_tpl}}
+         {{/each}}
+        {{#unless characters_group}}
+         <li>No character on this group. Please invite some characters.</li>
+        {{/unless}}
+        Game master :
         <li>
-         <a href="/character/{{name}}">{{name}}</a>
-        </li>
-       {{/each}}
-       </div>
-       <input type="image" src="/img/dice/d4.png" class="roll4" alt="Roll a d4 dice" />
-       <input type="image" src="/img/dice/d6.png" class="roll6" alt="Roll a d6 dice" />
-       <input type="image" src="/img/dice/d8.png" class="roll8" alt="Roll a d8 dice" />
-       <input type="image" src="/img/dice/d10.png" class="roll10" alt="Roll a d10 dice" />
-       <input type="image" src="/img/dice/d12.png" class="roll12" alt="Roll a d12 dice" />
-       <input type="image" src="/img/dice/d20.png" class="roll20" alt="Roll a d20 dice" />
-       <input type="image" src="/img/dice/d100.png" class="roll100" alt="Roll a d100 dice" />
+         {{#each avatarFileGM}} 
+           <img src="{{this.url}}" alt="">
+         {{/each}}
+         {{gamemaster_name}}</li>
+        </div>
+      </div>
+      <div class="basic-grey">
+        <input type="image" src="/img/dice/d4.png" class="roll4" alt="Roll a d4 dice" />
+        <input type="image" src="/img/dice/d6.png" class="roll6" alt="Roll a d6 dice" />
+        <input type="image" src="/img/dice/d8.png" class="roll8" alt="Roll a d8 dice" />
+        <input type="image" src="/img/dice/d10.png" class="roll10" alt="Roll a d10 dice" />
+        <input type="image" src="/img/dice/d12.png" class="roll12" alt="Roll a d12 dice" />
+        <input type="image" src="/img/dice/d20.png" class="roll20" alt="Roll a d20 dice" />
+        <input type="image" src="/img/dice/d100.png" class="roll100" alt="Roll a d100 dice" />
+      </div>
      </div>
-    </div>
-  <div class="row">
-     <div class="col-sm-6 col-sm-offset-3 basic-grey">
+     <div class="col-sm-6">
+     <div class="basic-grey">
       <h1>Posts</h1>
       <div id="creategrouppost">
          <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
@@ -31,6 +41,7 @@
          {{/each}}
          </select>
        </div>
+      </div>
       {{#each group_posts}}
        {{> grouppost}}
       {{/each}}
@@ -38,11 +49,25 @@
     </div>
  </div>
 </template>
-
+<template name="character_group_tpl">
+ <li>
+ <a href="/character/{{name}}">
+     {{#each avatarFile}} 
+       <img src="{{this.url}}" alt="">
+     {{/each}}
+     {{name}}</a>
+ </li>
+</template>
 <template name="grouppost">
 {{#if group_post_rights}}
- <div class="post">
-    {{owner_name}} - {{txt}} - {{visibility_name}}
+ <div class="basic-grey">
+  <div class="owner-post">
+    <span class="owner-name-post"><a href="{{owner_name_link}}">{{owner_name}}</a></span>
+    <span class="date-post">{{display_date}}- {{visibility_name}}</span>
+  </div>
+  <div class="post-content">
+   {{txt}}
+  </div>
 </div>
 {{/if}}
 </template>

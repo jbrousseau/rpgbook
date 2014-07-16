@@ -33,7 +33,7 @@
           <input type="password" id="newpassword" />
         </label>
         <label>
-          <span class="full"><input type="button" class="button okupdatesettings" value="Update" /></span>
+          <span class="full"><input type="button" class="btn btn-danger" value="Update" /></span>
           &nbsp;
         </label>
       </div>
@@ -46,8 +46,10 @@
       <i class="fa fa-refresh fa-spin"></i>
     {{/unless}} 
     {{#if this.isUploaded}}
-      <div class="avatarimg">
-        <img class="avatarimg" src="{{this.url}}" alt="" id={{this._id}}>
+      <div class="centeravatar">
+        <div class="avatarimg">
+          <img class="avatarimg" src="{{this.url}}" alt="" id={{this._id}}>
+        </div>
       </div>
       <div class="upload">
         <div class="title">Choose an image to upload</div>
@@ -55,7 +57,7 @@
         id="{{this._id}}" />
       </div>
       <span>Image avatar :</span> 
-      {{> FS.DeleteButton class="btn btn-danger btn-xs"}} 
+      {{> FS.DeleteButton class="btn btn-danger"}} 
     {{/if}} 
   {{/each}} 
   {{#unless avatarFile.count}}

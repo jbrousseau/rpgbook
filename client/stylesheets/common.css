@@ -35,15 +35,30 @@ div.avatarimg
     height: 110px;
     padding-bottom: 130px;
 }
-div.avatarimgcenter
+.date-post
 {
-    display: block;
-    padding-left: 125px;
-    margin-right: auto;
+    color:gray;
+    width:100%;
 }
-.avatarimgcenter:after
+.owner-post
 {
-    left: auto!important;
+    margin-bottom:15px;
+}
+.post-content
+{
+    color:black;
+    font-size:14px;
+}
+.characters-group img
+{
+    width:20px;
+    height:20px;
+}
+.owner-name-post
+{
+    font-weight: bold;
+    margin-bottom:3px;
+    display:block;
 }
 .avatarimg img
 {
@@ -78,7 +93,7 @@ div.betabanner
     height: 40px;
     position: absolute;
     top: 0px;
-    left: 133px;
+    left: 148px;
     background-size: 40px 37px;
     background-repeat: no-repeat;
 }
@@ -121,8 +136,6 @@ div.betabanner
 }
 .basic-grey label>span {
     float: left;
-    width: 110px;
-    text-align: right;
     padding-right: 10px;
     margin-top: 10px;
     color: #888;
@@ -144,7 +157,7 @@ div.betabanner
     margin-top: 2px;
     outline: 0 none;
     padding: 3px 3px 3px 5px;
-    width: 70%;
+    width: 100%;
     font: normal 12px/12px Georgia, "Times New Roman", Times, serif;
 }
 div.row {
@@ -181,10 +194,20 @@ div.attribute-readonly {
     outline: 0 none;
     width: 70%;
 }
+.btn-xs, .btn-group-xs > .btn {
+padding: 0px;
+}
+.centeravatar {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+     width:28%;
+}
 div.upload {
         top:0;
         left:0;
-        margin:9px;
+        margin-top:9px;
+        margin-bottom:9px;
         cursor:pointer;
         overflow:hidden;
         padding:20px 60px;
