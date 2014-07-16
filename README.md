@@ -1,9 +1,8 @@
 # [rpgbook](https://github.com/jbrousseau/rpgbook)
 =======
 
-[![Build Status](https://secure.travis-ci.org/jekyll/jekyll.svg?branch=master)](https://travis-ci.org/jekyll/jekyll)
-[![Code Climate](http://img.shields.io/codeclimate/github/jekyll/jekyll.svg)](https://codeclimate.com/github/jekyll/jekyll)
-[![Dependency Status](https://gemnasium.com/jekyll/jekyll.svg)](https://gemnasium.com/jekyll/jekyll)
+[![Build Status](https://secure.travis-ci.org/jbrousseau/rpgbook.svg?branch=master)](https://travis-ci.org/jbrousseau/rpgbook)
+[![Dependency Status](https://gemnasium.com/jbrousseau/rpgbook.svg)](https://gemnasium.com/jbrousseau/rpgbook)
 
 
 A social network webapp for Role playing games
@@ -15,7 +14,7 @@ Build on Meteor.js
 ```sh
 sudo curl https://install.meteor.com | /bin/sh
 npm install -g meteorite
-```sh
+```
 **install graphicsmagick :
 ```sh
 http://www.graphicsmagick.org/INSTALL-unix.html
