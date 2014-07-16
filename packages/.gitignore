@@ -39,3 +39,7 @@
 /inject-initial
 /moment
 /kadira
+/jasmine-unit
+/velocity
+/package-stubber
+/velocity-html-reporter

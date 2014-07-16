@@ -26,3 +26,6 @@ zones
 moment
 spiderable
 kadira
+jasmine-unit
+velocity-html-reporter
+velocity

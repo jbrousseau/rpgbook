@@ -28,6 +28,20 @@ $ cd rpgbook
 # install dependencies and start the server on port XXXX
 $ mrt --port XXXX --settings private/local-settings.json
 ```
+**Don't forget to create this file **
+```sh
+//private/local-settings.json
+{
+    "facebook" : {
+        "clientId": "XXXXX",
+        "secret": "XXXXX"
+    },
+    "kadira": {
+        "appId": "XXXXX",
+        "appSecret": "XXXXX"
+    }
+}
+```
 ## License
 
 [MIT License](http://opensource.org/licenses/MIT)
