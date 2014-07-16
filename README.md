@@ -10,15 +10,15 @@ Build on Meteor.js
 
 ## Installation
 
-**install meteor and Atmosphere package manager :
+**install meteor and Atmosphere package manager :**
 ```sh
 sudo curl https://install.meteor.com | /bin/sh
 npm install -g meteorite
 ```
-**install graphicsmagick :
+**install graphicsmagick :**
 ```sh
 http://www.graphicsmagick.org/INSTALL-unix.html
-```sh
+```
 **With [meteor](http://meteor.com) installed and [meteorite](http://atmospherejs.com/docs/installing) installed**
 ```sh
 # Get the project
