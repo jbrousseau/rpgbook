@@ -16,7 +16,8 @@
       "collectionFS": {},
       "cfs-ui": {},
       "zones": {},
-      "moment": {}
+      "moment": {},
+      "kadira": {}
     },
     "packages": {
       "iron-router": {
@@ -63,6 +64,11 @@
         "git": "https://github.com/acreeger/meteor-moment.git",
         "tag": "v2.6.0",
         "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+      },
+      "kadira": {
+        "git": "https://github.com/meteorhacks/kadira.git",
+        "tag": "v2.4.8",
+        "commit": "5f4437af113537def34484c7b7a2a5e4d60847a9"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
