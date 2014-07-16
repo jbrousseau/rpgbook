@@ -18,6 +18,7 @@
     "kadira": {},
     "velocity": {},
     "jasmine-unit": {},
-    "velocity-html-reporter": {}
+    "velocity-html-reporter": {},
+    "jasmine": {}
   }
 }

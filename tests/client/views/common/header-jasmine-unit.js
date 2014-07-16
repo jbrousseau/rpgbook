@@ -9,3 +9,4 @@
             expect(Template.header.displayName()).toBe('');
         });
     });
+});

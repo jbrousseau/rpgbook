@@ -1,5 +1,18 @@
 
 ////////////////////////////////////////////////////////////
+// AccountsEntry
+//
+AccountsEntry = {
+  "settings": {
+    "defaultProfile": {
+      "someDefault": "default"
+    }
+  },
+  "config": function emptyFn () {}
+};
+
+
+////////////////////////////////////////////////////////////
 // T9n
 //
 T9n = function () { return {}; };
@@ -314,7 +327,7 @@ moment = function () { return {
     "charsLeftOver": 0,
     "invalidMonth": null
   },
-  "_d": "2014-07-16T13:13:28.263Z",
+  "_d": "2014-07-16T13:52:39.651Z",
   "clone": function emptyFn () {},
   "valueOf": function emptyFn () {},
   "unix": function emptyFn () {},
