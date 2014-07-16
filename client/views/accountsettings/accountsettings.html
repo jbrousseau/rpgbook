@@ -1,39 +1,43 @@
 <template name="accountsettings">
-  <div class="container basic-grey">
-    <h1>Your Account settings
-      <span>You can update your profile here</span>
-    </h1>
-    <label>
-      <span>Avatar :</span>
-      {{> avataraccount}}
-    </label>
-    <label>
-      <span>Firstname :</span>
-      <input type="text" id="firstname" value="{{profile.firstname}}" />
-    </label>
-    <label>
-      <span>Lastname :</span>
-      <input type="text" id="lastname" value="{{profile.lastname}}" />
-    </label>
-    <label>
-      <span>Email :</span>
-      <input type="text" id="email" value="{{address}}" readonly />
-    </label>
-    <label>
-      <span class="full">Change Password :</span>&nbsp;
-    </label>
-    <label>
-      <span>Old password :</span>
-      <input type="password" id="oldpassword" />
-    </label>
-    <label>
-     <span>New Password :</span>
-      <input type="password" id="newpassword" />
-    </label>
-    <label>
-      <span class="full"><input type="button" class="button okupdatesettings" value="Update" /></span>
-      &nbsp;
-    </label>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 basic-grey">
+        <h1>Your Account settings
+          <span>You can update your profile here</span>
+        </h1>
+        <label>
+          <span>Avatar :</span>
+          {{> avataraccount}}
+        </label>
+        <label>
+          <span>Firstname :</span>
+          <input type="text" id="firstname" value="{{profile.firstname}}" />
+        </label>
+        <label>
+          <span>Lastname :</span>
+          <input type="text" id="lastname" value="{{profile.lastname}}" />
+        </label>
+        <label>
+          <span>Email :</span>
+          <input type="text" id="email" value="{{address}}" readonly />
+        </label>
+        <label>
+          <span class="full">Change Password :</span>&nbsp;
+        </label>
+        <label>
+          <span>Old password :</span>
+          <input type="password" id="oldpassword" />
+        </label>
+        <label>
+         <span>New Password :</span>
+          <input type="password" id="newpassword" />
+        </label>
+        <label>
+          <span class="full"><input type="button" class="button okupdatesettings" value="Update" /></span>
+          &nbsp;
+        </label>
+      </div>
+    </div>      
   </div>
 </template>
 <template name="avataraccount">

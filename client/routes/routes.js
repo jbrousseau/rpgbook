@@ -34,10 +34,14 @@ Router.map(function() {
       return char;
     }
   });
-  this.route('about');
+  this.route('about', {
+   waitOn: function() {
+      return [Meteor.subscribe('images')];
+    },
+  });
   this.route('blog', {
     waitOn: function() {
-      return [Meteor.subscribe('blogposts'), Meteor.subscribe('userData')];
+      return [Meteor.subscribe('blogposts'), Meteor.subscribe('userData'), Meteor.subscribe('images')];
     },
   });
   this.route('accountsettings', {
@@ -56,7 +60,7 @@ Router.map(function() {
       return AccountsEntry.signInRequired(this);
     },
     waitOn: function() {
-      return [Meteor.subscribe('groups'), Meteor.subscribe('characters')];
+      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('images')];
     },
     data: function() { 
       return { groupsList: Groups.find({user_id: Meteor.userId()}) }; 
@@ -68,7 +72,7 @@ Router.map(function() {
       return AccountsEntry.signInRequired(this);
     },
     waitOn: function() {
-      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('groupposts')];
+      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('groupposts'), Meteor.subscribe('images')];
     },
     data: function() { 
       return Groups.findOne({name: this.params.name});

@@ -1,18 +1,5 @@
 
 ////////////////////////////////////////////////////////////
-// AccountsEntry
-//
-AccountsEntry = {
-  "settings": {
-    "defaultProfile": {
-      "someDefault": "default"
-    }
-  },
-  "config": function emptyFn () {}
-};
-
-
-////////////////////////////////////////////////////////////
 // T9n
 //
 T9n = function () { return {}; };
@@ -327,7 +314,7 @@ moment = function () { return {
     "charsLeftOver": 0,
     "invalidMonth": null
   },
-  "_d": "2014-07-16T13:52:39.651Z",
+  "_d": "2014-07-16T14:48:53.870Z",
   "clone": function emptyFn () {},
   "valueOf": function emptyFn () {},
   "unix": function emptyFn () {},
@@ -511,30 +498,6 @@ moment = function () { return {
     "invalidDate": function emptyFn () {}
   }
 }; };
-
-
-////////////////////////////////////////////////////////////
-// VelocityTestFiles
-//
-VelocityTestFiles = {};
-
-
-////////////////////////////////////////////////////////////
-// VelocityTestReports
-//
-VelocityTestReports = {};
-
-
-////////////////////////////////////////////////////////////
-// VelocityAggregateReports
-//
-VelocityAggregateReports = {};
-
-
-////////////////////////////////////////////////////////////
-// VelocityLogs
-//
-VelocityLogs = {};
 
 /* Zepto v1.1.3 - zepto event ajax form ie - zeptojs.com/license */
 

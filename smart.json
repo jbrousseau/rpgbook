@@ -15,10 +15,6 @@
     "cfs-ui": {},
     "zones": {},
     "moment": {},
-    "kadira": {},
-    "velocity": {},
-    "jasmine-unit": {},
-    "velocity-html-reporter": {},
-    "jasmine": {}
+    "kadira": {}
   }
 }

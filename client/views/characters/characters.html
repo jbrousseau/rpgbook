@@ -1,26 +1,30 @@
 <template name="characters">
-  <div class="container basic-grey">
-    <h1>List of your characters
-      <span>Choose a character to edit or delete</span>
-    </h1>
-    <div id="characters">{{#each charactersList}}
-      <div class="character {{selected}}">
-        <div class="destroy"></div>
-        <div class="avatardisplay">
-          {{#each avatarFile}} 
-            <img src="{{this.url}}" alt="">
-          {{/each}}
+  <div class="container">
+   <div class="row">
+     <div class="col-sm-6 col-sm-offset-3 basic-grey">
+        <h1>List of your characters
+          <span>Choose a character to edit or delete</span>
+        </h1>
+        <div id="characters">{{#each charactersList}}
+          <div class="character {{selected}}">
+            <div class="destroy"></div>
+            <div class="avatardisplay">
+              {{#each avatarFile}} 
+                <img src="{{this.url}}" alt="">
+              {{/each}}
+            </div>
+            <div class="display">
+              <a class="character-name {{name_class}}" href="/{{_id}}">
+                {{name}}
+              </a>
+            </div>
+          </div>{{/each}}</div>
+        <div id="createCharacter">
+          Create a character :
+          <input type="text" id="new-character" placeholder="New character name"
+          />
         </div>
-        <div class="display">
-          <a class="character-name {{name_class}}" href="/{{_id}}">
-            {{name}}
-          </a>
-        </div>
-      </div>{{/each}}</div>
-    <div id="createCharacter">
-      Create a character :
-      <input type="text" id="new-character" placeholder="New character name"
-      />
+      </div>
     </div>
   </div>
 </template>

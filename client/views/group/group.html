@@ -1,35 +1,41 @@
 <template name="group">
-  <div class="container basic-grey">
-   <h1>{{name}}</h1>
-   <div class="characters-group">
-     Characters :
-     {{#each characters_group}}
-     <li>
-      <a href="/character/{{name}}">{{name}}</a>
-     </li>
-    {{/each}}
+  <div class="container">
+   <div class="row">
+     <div class="col-sm-6 col-sm-offset-3 basic-grey">
+      <h1>{{name}}</h1>
+      <div class="characters-group">
+        Characters :
+        {{#each characters_group}}
+        <li>
+         <a href="/character/{{name}}">{{name}}</a>
+        </li>
+       {{/each}}
+       </div>
+       <input type="image" src="/img/dice/d4.png" class="roll4" alt="Roll a d4 dice" />
+       <input type="image" src="/img/dice/d6.png" class="roll6" alt="Roll a d6 dice" />
+       <input type="image" src="/img/dice/d8.png" class="roll8" alt="Roll a d8 dice" />
+       <input type="image" src="/img/dice/d10.png" class="roll10" alt="Roll a d10 dice" />
+       <input type="image" src="/img/dice/d12.png" class="roll12" alt="Roll a d12 dice" />
+       <input type="image" src="/img/dice/d20.png" class="roll20" alt="Roll a d20 dice" />
+       <input type="image" src="/img/dice/d100.png" class="roll100" alt="Roll a d100 dice" />
+     </div>
     </div>
-    <input type="image" src="/img/dice/d4.png" class="roll4" alt="Roll a d4 dice" />
-    <input type="image" src="/img/dice/d6.png" class="roll6" alt="Roll a d6 dice" />
-    <input type="image" src="/img/dice/d8.png" class="roll8" alt="Roll a d8 dice" />
-    <input type="image" src="/img/dice/d10.png" class="roll10" alt="Roll a d10 dice" />
-    <input type="image" src="/img/dice/d12.png" class="roll12" alt="Roll a d12 dice" />
-    <input type="image" src="/img/dice/d20.png" class="roll20" alt="Roll a d20 dice" />
-    <input type="image" src="/img/dice/d100.png" class="roll100" alt="Roll a d100 dice" />
-  </div>
- <div class="container basic-grey">
- <h1>Posts</h1>
- <div id="creategrouppost">
-    <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
-    <select name="visibility-post" id="visibility-post">
-    {{#each group_visibility_posts}}
-      <option value="{{_id}}">{{name}}</option> 
-    {{/each}}
-    </select>
-  </div>
- {{#each group_posts}}
-  {{> grouppost}}
- {{/each}}
+  <div class="row">
+     <div class="col-sm-6 col-sm-offset-3 basic-grey">
+      <h1>Posts</h1>
+      <div id="creategrouppost">
+         <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
+         <select name="visibility-post" id="visibility-post">
+         {{#each group_visibility_posts}}
+           <option value="{{_id}}">{{name}}</option> 
+         {{/each}}
+         </select>
+       </div>
+      {{#each group_posts}}
+       {{> grouppost}}
+      {{/each}}
+      </div>
+    </div>
  </div>
 </template>
 

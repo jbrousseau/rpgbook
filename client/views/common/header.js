@@ -1,4 +1,4 @@
-/* global Meteor Template Deps Router */
+/* global Meteor Template Deps Router Images */
 
 Template.header.displayName = function () {
   var user = Meteor.user();
@@ -41,6 +41,14 @@ Template.header.events({
     $(".navbar-collapse").collapse('hide');
   },
 });
+Template.entryAccountButtons_custom.avatarFile = function() {
+  var avatarFile = [{url:"/img/character/empty.gif"}];
+  var user = Meteor.user();
+  if (user && user.profile.avatarfile_id) {
+    avatarFile = Images.find({_id: user.profile.avatarfile_id});
+  }
+  return avatarFile;
+};
 Template.entryAccountButtons_custom.events({
   'click .navbar-nav li a': function (evt) {
     $(".navbar-collapse").collapse('hide');

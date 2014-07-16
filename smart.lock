@@ -17,11 +17,7 @@
       "cfs-ui": {},
       "zones": {},
       "moment": {},
-      "kadira": {},
-      "velocity": {},
-      "jasmine-unit": {},
-      "velocity-html-reporter": {},
-      "jasmine": {}
+      "kadira": {}
     },
     "packages": {
       "iron-router": {
@@ -73,26 +69,6 @@
         "git": "https://github.com/meteorhacks/kadira.git",
         "tag": "v2.4.8",
         "commit": "5f4437af113537def34484c7b7a2a5e4d60847a9"
-      },
-      "velocity": {
-        "git": "https://github.com/xolvio/velocity.git",
-        "tag": "v0.1.11",
-        "commit": "a13c44c5acc0f4e7490bc28bc323d3dee799f9a3"
-      },
-      "jasmine-unit": {
-        "git": "https://github.com/xolvio/jasmine-unit.git",
-        "tag": "v0.1.24",
-        "commit": "885dde77a96390d0fd31b03756f837f482db2ef1"
-      },
-      "velocity-html-reporter": {
-        "git": "https://github.com/rdickert/velocity-html-reporter.git",
-        "tag": "v0.1.4",
-        "commit": "55f973519fb6db831678219057854b94a4cec846"
-      },
-      "jasmine": {
-        "git": "https://github.com/Sanjo/meteor-jasmine.git",
-        "tag": "v0.1.11",
-        "commit": "d78364d6f44f87426225ebf386fc5fbb0e1726e3"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
@@ -148,11 +124,6 @@
         "git": "https://github.com/gadicc/meteor-inject-initial.git",
         "tag": "v0.0.8",
         "commit": "90f2fbcc5b4bc17fa4d4535f47813e31d86033b4"
-      },
-      "package-stubber": {
-        "git": "https://github.com/alanning/meteor-package-stubber.git",
-        "tag": "v0.0.11",
-        "commit": "a9287eb6ef729982568a28ba73407dd09d5cce63"
       },
       "underscore-string-latest": {
         "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
@@ -231,8 +202,8 @@
       },
       "cfs-filesystem": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-filesystem.git",
-        "tag": "v0.0.26",
-        "commit": "1ec938265d937d81ff1323f2a8c8dbd301b233df"
+        "tag": "v0.0.27",
+        "commit": "703be2e5f890c84366df39a90a209b7b2c95c967"
       },
       "reactive-property": {
         "git": "https://github.com/CollectionFS/Meteor-reactive-property.git",

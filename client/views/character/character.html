@@ -1,36 +1,40 @@
 <template name="character">
-  <div class="container basic-grey">
-    <h1>{{name}}</h1>
-    {{> avatarcharacter}}
-    <label><span>Character description</span>
-    {{#if editable}}
-     <textarea rows="4" cols="50" type="text" id="new-description" placeholder="Description...">{{description}}</textarea>
-    {{else}}
-       <div class="attribute-readonly">{{description}}</div>
-    {{/if}}
-    </label>
-    <label><span>Rules</span>
-   {{#if chooserule}}
-      <SELECT class="rules_select" name="rules" size="1">
-        <OPTION value="none">No specific rule set / system</OPTION>
-      {{#each listrules}} 
-        <OPTION>{{title}}</OPTION>
-      {{/each}}
-      </SELECT>
-    {{else}}
-      <div class="attribute-readonly">{{rules_name}} &nbsp;</div>
-    {{/if}}
-  </label>
-    {{#each character_attributes}} 
-     {{> character_attributes_tpl}} 
-    {{/each}}
-    {{#if editable}}
-      <input
-      type="text" id="new-character-attribute" placeholder="New character attribute name..." />
-    {{/if}}
-  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 basic-grey">
+        <h1>{{name}}</h1>
+        {{> avatarcharacter}}
+        <label><span>Character description</span>
+        {{#if editable}}
+         <textarea rows="4" cols="50" type="text" id="new-description" placeholder="Description...">{{description}}</textarea>
+        {{else}}
+           <div class="attribute-readonly">{{description}}</div>
+        {{/if}}
+        </label>
+        <label><span>Rules</span>
+       {{#if chooserule}}
+          <SELECT class="rules_select" name="rules" size="1">
+            <OPTION value="none">No specific rule set / system</OPTION>
+          {{#each listrules}} 
+            <OPTION>{{title}}</OPTION>
+          {{/each}}
+          </SELECT>
+        {{else}}
+          <div class="attribute-readonly">{{rules_name}} &nbsp;</div>
+        {{/if}}
+      </label>
+        {{#each character_attributes}} 
+         {{> character_attributes_tpl}} 
+        {{/each}}
+        {{#if editable}}
+          <input
+          type="text" id="new-character-attribute" placeholder="New character attribute name..." />
+        {{/if}}
+      </div>
+    </div>
   {{#if editable}}
-    <div class="container basic-grey">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 basic-grey">
         <div class="group">
           <h1>Your session</h1>{{#if your_group_name}} Session name : {{your_group_name}}
           <p>
@@ -57,9 +61,11 @@
             {{/unless}}
           </div>
         </div>
+     </div>
     </div>
   {{/if}}
   {{> characterposts}}
+ </div>
 </template>
 <template name="invited_group_tpl">
   <div class="group_invit">

@@ -52,6 +52,36 @@ div.avatarimgcenter
     top: 9px;
     z-index: 100;
 }
+div.navbar-header
+{
+    position: relative;
+}
+img.avataruser 
+{
+    width: 30px;
+    height: 30px;
+}
+a.navbar-img {
+font-weight: 700;
+padding-top:11px!important;
+float: left;
+height: 50px;
+padding: 0px 10px 0px 10px;
+font-size: 18px;
+line-height: 20px;
+}
+div.betabanner 
+{
+    background-image: url(/img/beta_banner.png);  
+    float: left;
+    width: 48px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    left: 133px;
+    background-size: 40px 37px;
+    background-repeat: no-repeat;
+}
 .avatarimg:after
 {
     background-image: url(/img/character/avatar_backg.png);
@@ -65,9 +95,6 @@ div.avatarimgcenter
 }
 /* Basic Grey */
 .basic-grey {
-    width: 460px;
-    margin-right: auto;
-    margin-left: auto;
     margin-bottom: 20px;
     background: #EEE;
     padding: 20px 30px 20px 30px;
@@ -119,6 +146,10 @@ div.avatarimgcenter
     padding: 3px 3px 3px 5px;
     width: 70%;
     font: normal 12px/12px Georgia, "Times New Roman", Times, serif;
+}
+div.row {
+    margin-right: 0px;
+    margin-left: 0px;
 }
 .basic-grey select {
     background: #FFF url('img/down-arrow.png') no-repeat right;

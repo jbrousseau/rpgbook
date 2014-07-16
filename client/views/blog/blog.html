@@ -1,28 +1,32 @@
 <template name="blog">
   <div class="container">
     <h2>Blog</h2>
-  </div>
-  {{#if isadmin}}
-    <div class="container basic-grey" id="createblogpost">
-      <div class="element">Title :
-        <input type="text" id="titleblogpost" />
+    {{#if isadmin}}
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 basic-grey" id="createblogpost">
+        <div class="element">Title :
+          <input type="text" id="titleblogpost" />
+        </div>
+        <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
       </div>
-      <textarea rows="4" cols="50" type="text" id="new-post" placeholder="New post text..."></textarea>
     </div>
-  {{/if}}
-  {{#each blog_posts}} 
-    {{> blogpost}} 
-  {{/each}}
+    {{/if}}
+    {{#each blog_posts}} 
+      {{> blogpost}} 
+    {{/each}}
+  </div>
 </template>
 
 <template name="blogpost">
-  <div class="container basic-grey">
-  <h1>{{title}}
-    <span>{{user_name}} - {{display_date}}</span>
-  </h1>
-   <span>{{txt}}</span>
-    {{#if isadmin}}
-    <input type="button" class="button delete" value="Delete" />
-    {{/if}}
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 basic-grey">
+    <h1>{{title}}
+      <span>{{user_name}} - {{display_date}}</span>
+    </h1>
+     <span>{{txt}}</span>
+      {{#if isadmin}}
+      <input type="button" class="button delete" value="Delete" />
+      {{/if}}
+    </div>
   </div>
 </template>
