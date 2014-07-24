@@ -2,8 +2,11 @@
 =======
 
 [![Build Status](https://secure.travis-ci.org/jbrousseau/rpgbook.svg?branch=master)](https://travis-ci.org/jbrousseau/rpgbook)
-[![Dependency Status](https://gemnasium.com/jbrousseau/rpgbook.svg)](https://gemnasium.com/jbrousseau/rpgbook)
+[![Dependency Status](https://gemnasium.com/v/rpgbook.svg)](https://gemnasium.com/jbrousseau/rpgbook)
 
+
+__Bugs and requests__: submit them through the project's issues tracker.<br>
+[![Issues](http://img.shields.io/github/issues/jbrousseau/rpgbook.svg)]( https://github.com/jbrousseau/rpgbook/issues )
 
 A social network webapp for Role playing games
 Build on Meteor.js
