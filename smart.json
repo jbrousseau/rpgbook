@@ -13,8 +13,7 @@
     },
     "collectionFS": {},
     "cfs-ui": {},
-    "zones": {},
     "moment": {},
-    "kadira": {}
+    "collection-behaviours": {}
   }
 }

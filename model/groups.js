@@ -4,4 +4,7 @@
  * @module model
  * @submodule groups
  */
+ /* global Groups Meteor */
 Groups = new Meteor.Collection("groups");
+
+Groups.selectable();

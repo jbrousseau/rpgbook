@@ -6,7 +6,7 @@
           <span>Edit one session by clicking on it (to invite characters). You can delete it, or view one session.</span>
         </h1>
         <div id="groups">{{#each groupsList}}
-          <div class="group {{selected}}">
+          <div class="group {{#if isSelected}}selected{{/if}}">
             <div class="destroy"></div>
             <div class="go"></div>
             <div class="display">

@@ -1,17 +1,16 @@
+/* global Template, Groups Session Meteor Router okCancelEvents*/
 Template.groups.rendered = function() {
   document.title = "groups list";
+  //Groups.unSelect();
   return $("<meta>", {
     name: "description",
     content: "List of your groups"
   }).appendTo("head");
-  Session.set("selected_character", null);
 };
 
-Template.groups.selected = function () {
-  return Session.equals('selected_group', this._id) ? 'selected' : '';
-};
+
 Template.groups.selected_name = function () {
-    var group = Groups.findOne(Session.get("selected_group"));
+    var group = Groups.selected();
     return group && group.name;
   };
 Template.groups.name_class = function () {
@@ -21,7 +20,7 @@ Template.groups.name_class = function () {
 
 Template.groups.events({
   'mousedown .group': function (evt) { // select group
-    Session.set('selected_group', this._id);
+    this.select();
   },
   'click .group': function (evt) {
     // prevent clicks on <a> from refreshing the page.

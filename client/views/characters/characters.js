@@ -8,9 +8,6 @@ Template.characters.rendered = function() {
   }).appendTo("head");
 };
 
-Template.characters.selected = function () {
-  return Session.equals('selected_character', this._id) ? 'selected' : '';
-};
 Template.characters.name_class = function () {
   return this.name ? '' : 'empty';
 };
@@ -24,7 +21,7 @@ Template.characters.avatarFile = function() {
 
 Template.characters.events({
   'mousedown .character': function (evt) { // select character
-    Session.set('selected_character', this._id);
+    this.select();
     Session.set('character_user_id', this.user_id);
   },
   'click .display, click .avatardisplay': function (evt) {
