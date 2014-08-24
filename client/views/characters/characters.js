@@ -8,17 +8,6 @@ Template.characters.rendered = function() {
   }).appendTo("head");
 };
 
-Template.characters.name_class = function () {
-  return this.name ? '' : 'empty';
-};
-Template.characters.avatarFile = function() {
-  var avatarFile = [{url:"/img/character/empty.gif"}];
-  if (this.avatarfile_id) {
-    avatarFile = Images.find({_id: this.avatarfile_id});
-  }
-  return avatarFile;
-};
-
 Template.characters.events({
   'mousedown .character': function (evt) { // select character
     this.select();

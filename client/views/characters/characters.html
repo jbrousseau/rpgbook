@@ -12,7 +12,7 @@
               <img src="{{avatarFileUrl}}" alt="">
             </div>
             <div class="display">
-              <a class="character-name {{name_class}}" href="/{{_id}}">
+              <a class="character-name {{#unless name}}empty{{/unless}}" href="/{{_id}}">
                 {{name}}
               </a>
             </div>

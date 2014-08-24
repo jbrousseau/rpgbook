@@ -52,9 +52,7 @@
 <template name="character_group_tpl">
  <li>
  <a href="/character/{{name}}">
-     {{#each avatarFile}} 
-       <img src="{{this.url}}" alt="">
-     {{/each}}
+     <img src="{{avatarFileUrl}}" alt="">
      {{name}}</a>
  </li>
 </template>

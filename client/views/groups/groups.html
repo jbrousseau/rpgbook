@@ -10,7 +10,7 @@
             <div class="destroy"></div>
             <div class="go"></div>
             <div class="display">
-              <a class="group-name {{name_class}}" href="/{{_id}}">
+              <a class="group-name {{#unless name}}empty{{/unless}}" href="/{{_id}}">
               {{name}}
             </a>
             </div>

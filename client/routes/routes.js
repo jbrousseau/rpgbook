@@ -1,6 +1,7 @@
 /* global Meteor Router Session */
 /* global Characters model */
 /* global Groups model */
+/* global AccountsEntry model */
 /* global Characterposts model */
 /* global Groupposts model */
 /* global Blogposts model */

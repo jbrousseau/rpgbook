@@ -9,41 +9,37 @@ Template.groups.rendered = function() {
 };
 
 
-Template.groups.selected_name = function () {
-    var group = Groups.selected();
-    return group && group.name;
-  };
-Template.groups.name_class = function () {
-  return this.name ? '' : 'empty';
+Template.groups.selected_name = function() {
+  var group = Groups.selected();
+  return group && group.name;
 };
 
-
 Template.groups.events({
-  'mousedown .group': function (evt) { // select group
+  'mousedown .group': function(evt) { // select group
     this.select();
   },
-  'click .group': function (evt) {
+  'click .group': function(evt) {
     // prevent clicks on <a> from refreshing the page.
     evt.preventDefault();
   },
-  'click .destroy': function () {
+  'click .destroy': function() {
     Groups.remove(this._id);
   },
-  'click .go': function () {
-    Router.go('group', {name: this.name});
+  'click .go': function() {
+    Router.go('group', {
+      name: this.name
+    });
   },
 });
 Template.groups.events(okCancelEvents(
-  '#new-group',
-  {
-    ok: function (text, evt) {
+  '#new-group', {
+    ok: function(text, evt) {
       Groups.insert({
         name: text,
-        user_id:  Meteor.userId(),
+        user_id: Meteor.userId(),
         done: false,
         timestamp: (new Date()).getTime()
       });
       evt.target.value = '';
     }
-  })
-);
+  }));
