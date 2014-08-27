@@ -36,11 +36,6 @@ Template.header.navbarCustomHome = function() {
   }
   return '';
 };
-Template.header.events({
-  'click .navbar-nav li a': function (evt) {
-    $(".navbar-collapse").collapse('hide');
-  },
-});
 Template.entryAccountButtons_custom.avatarFile = function() {
   var avatarFile = [{url:"/img/character/empty.gif"}];
   var user = Meteor.user();
@@ -49,8 +44,3 @@ Template.entryAccountButtons_custom.avatarFile = function() {
   }
   return avatarFile;
 };
-Template.entryAccountButtons_custom.events({
-  'click .navbar-nav li a': function (evt) {
-    $(".navbar-collapse").collapse('hide');
-  },
-});

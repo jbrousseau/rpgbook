@@ -173,13 +173,3 @@ Template.avatarcharacter.events({
     });
   }
 });
-Template.avatarcharacter.avatarFile = function() {
-  var avatarFile = null;
-  if (Session.get('selected_character')) {
-    var character = Characters.findOne(Session.get('selected_character'));
-    if (character) {
-      avatarFile = Images.find({_id: character.avatarfile_id});
-    }
-  }
-  return avatarFile;
-};
