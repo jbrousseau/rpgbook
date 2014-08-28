@@ -1,19 +1,9 @@
 {
-  "packages": {
-    "iron-router": {},
-    "bootstrap-3": {},
-    "profile-online": {},
-    "accounts-entry": {
-      "git": "https://github.com/Differential/accounts-entry.git",
-      "branch": "master"
-    },
-    "easy-search": {
-      "git": "https://github.com/matteodem/meteor-easy-search.git",
-      "branch": "master"
-    },
-    "collectionFS": {},
-    "cfs-ui": {},
-    "moment": {},
-    "collection-behaviours": {}
-  }
+    "packages": {
+        "collectionfs": {},
+        "cfs-gridfs": {},
+        "cfs-graphicsmagick": {},
+        "cfs-ui": {},
+        "cfs-ejson-file": {}
+    }
 }
