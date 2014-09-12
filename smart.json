@@ -1,9 +1,0 @@
-{
-    "packages": {
-        "collectionfs": {},
-        "cfs-gridfs": {},
-        "cfs-graphicsmagick": {},
-        "cfs-ui": {},
-        "cfs-ejson-file": {}
-    }
-}
