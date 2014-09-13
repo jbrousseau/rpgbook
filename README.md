@@ -16,13 +16,12 @@ Build on Meteor.js
 **install meteor :**
 ```sh
 sudo curl https://install.meteor.com | /bin/sh
-sudo npm install -g meteorite
 ```
 **install graphicsmagick :**
 ```sh
 http://www.graphicsmagick.org/INSTALL-unix.html
 ```
-**With [meteor](http://meteor.com) installed and [meteorite](http://atmospherejs.com/docs/installing) installed**
+**With [meteor](http://meteor.com) installed**
 ```sh
 # Get the project
 $ git clone https://github.com/jbrousseau/rpgbook.git

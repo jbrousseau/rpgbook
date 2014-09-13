@@ -12,10 +12,10 @@ audit-argument-checks
 email
 spiderable
 showdown
+service-configuration
 mrt:moment
 mrt:profile-online
 mrt:bootstrap-3
-service-configuration
 matteodem:easy-search
 joshowens:accounts-entry
 iron:router
