@@ -1,5 +1,5 @@
 /* global Template Session Meteor User */
-/* global Characters Groupposts okCancelEvents moment Images */
+/* global Characters Groupposts okCancelEvents moment Images Groups*/
 Template.group.rendered = function() {
   document.title = this.name;
   return $("<meta>", {
@@ -16,24 +16,10 @@ Template.group.characters_group = function() {
       }
     });
   }
-  //TODO move this to a proper init method (rendered does not work)
-  Session.set('selected_group', this._id);
-  Session.set('owner_group_id', this.user_id);
-  if (this.user_id == Meteor.userId()) {
-    Session.set('selected_character', 'master');
-  }
   return chars;
 };
 Template.group.gamemaster_name = function() {
-  var avatarFile = [{
-    url: "/img/character/empty.gif"
-  }];
-  var user = null;
-  if (Session.get("owner_group_id")) {
-    user = Meteor.users.findOne({
-      _id: Session.get("owner_group_id")
-    });
-  }
+  var user = this && this.owner();
   if (user && user.profile) {
     return user.profile.firstname + ' ' + user.profile.lastname;
   }
@@ -58,18 +44,7 @@ Template.group.avatarFileGM = function() {
   }
   return avatarFile;
 };
-Template.character_group_tpl.avatarFile = function() {
-  var avatarFile = [{
-    url: "/img/character/empty.gif"
-  }];
 
-  if (this.avatarfile_id) {
-    avatarFile = Images.find({
-      _id: this.avatarfile_id
-    });
-  }
-  return avatarFile;
-};
 Template.group.group_posts = function() {
   var posts = null;
   posts = Groupposts.find({
@@ -82,7 +57,7 @@ Template.group.group_posts = function() {
   return posts;
 };
 Template.group.group_visibility_posts = function() {
-  var visibilities = new Array();
+  var visibilities = [];
   visibilities.push({
     name: 'public',
     _id: 'public'
@@ -98,7 +73,7 @@ Template.group.group_visibility_posts = function() {
       }
     }).fetch();
     for (var key in chars) {
-      if (chars[key]._id != Session.get('selected_character')) {
+      if (chars[key]._id != Characters.selectedId()) {
         visibilities.push(chars[key]);
       }
     }
@@ -147,7 +122,7 @@ Template.group.events(okCancelEvents('#new-post', {
   ok: function(text, evt, template) {
     Groupposts.insert({
       txt: text,
-      group_id: Session.get('selected_group'),
+      group_id: Groups.selectedId(),
       user_id: Meteor.userId(),
       type: 'text',
       visibility: template.find('#visibility-post').value,
@@ -183,7 +158,7 @@ Template.grouppost.group_post_rights = function() {
 };
 Template.grouppost.display_date = function() {
   return moment(this.timestamp).format('MMMM Do YYYY, h:mm:ss a');
-}
+};
 Template.grouppost.owner_name_link = function() {
   if (this.owner_id == 'master') {
     return 'Game master';
@@ -199,7 +174,7 @@ Template.grouppost.owner_name_link = function() {
       return null;
     }
   }
-}
+};
 
 Template.grouppost.visibility_name = function() {
   var visi = this.visibility;

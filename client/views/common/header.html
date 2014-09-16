@@ -15,12 +15,12 @@
         <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
           <ul class="nav navbar-nav">
          {{#if currentUser}}
-            <li class="{{activePage 'accountsettings'}}"><a href="{{pathFor 'accountsettings'}}" data-toggle="collapse" data-target="#bs-navbar-collapse-1">Account settings</a></li>
-            <li class="{{activePage 'characters'}}"><a href="{{pathFor 'characters'}}" data-toggle="collapse" data-target="#bs-navbar-collapse-1">Your characters</a></li>
-            <li class="{{activePage 'groups'}}"><a href="{{pathFor 'groups'}}" data-toggle="collapse" data-target="#bs-navbar-collapse-1">Game sessions</a></li>
+            <li class="{{activePage 'accountsettings'}}"><a href="{{pathFor 'accountsettings'}}">Account settings</a></li>
+            <li class="{{activePage 'characters'}}"><a href="{{pathFor 'characters'}}">Your characters</a></li>
+            <li class="{{activePage 'groups'}}"><a href="{{pathFor 'groups'}}">Game sessions</a></li>
           {{/if}}
-            <li class="{{activePage 'about'}}"><a href="{{pathFor 'about'}}" data-toggle="collapse" data-target="#bs-navbar-collapse-1">About</a></li>
-            <li class="{{activePage 'blog'}}"><a href="{{pathFor 'blog'}}" data-toggle="collapse" data-target="#bs-navbar-collapse-1">Blog</a></li>
+            <li class="{{activePage 'about'}}"><a href="{{pathFor 'about'}}">About</a></li>
+            <li class="{{activePage 'blog'}}"><a href="{{pathFor 'blog'}}">Blog</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {{> entryAccountButtons_custom}}
@@ -39,11 +39,11 @@
       {{/each}}
     </li>
     <li class="navbar-text">{{signedInAs}}</li>
-    <li><a href="/sign-out" data-toggle="collapse" data-target="#bs-navbar-collapse-1">{{t9n "signOut"}}</a></li>
+    <li><a href="/sign-out">{{t9n "signOut"}}</a></li>
   {{else}}
-      <li class="{{activePage 'entrySignIn'}}"><a href="/sign-in" data-toggle="collapse" data-target="#bs-navbar-collapse-1">{{t9n "signIn"}}</a></li>
+      <li class="{{activePage 'entrySignIn'}}"><a href="/sign-in">{{t9n "signIn"}}</a></li>
     {{#if showCreateAccountLink}}
-        <li class="{{activePage 'entrySignUp'}}"><a href="/sign-up" data-toggle="collapse" data-target="#bs-navbar-collapse-1">{{t9n "signUp"}}</a></li>
+        <li class="{{activePage 'entrySignUp'}}"><a href="/sign-up">{{t9n "signUp"}}</a></li>
     {{/if}}
   {{/if}}
 </template>

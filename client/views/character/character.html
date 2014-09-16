@@ -5,7 +5,7 @@
         <h1>{{name}}</h1>
         {{> avatarcharacter}}
         <label><span>Character description</span>
-        {{#if editable}}
+        {{#if isOwner}}
          <textarea rows="4" cols="50" type="text" id="new-description" placeholder="Description...">{{description}}</textarea>
         {{else}}
            <div class="attribute-readonly">{{description}}</div>
@@ -26,13 +26,13 @@
         {{#each character_attributes}} 
          {{> character_attributes_tpl}} 
         {{/each}}
-        {{#if editable}}
+        {{#if isOwner}}
           <input
           type="text" id="new-character-attribute" placeholder="New character attribute name..." />
         {{/if}}
       </div>
     </div>
-  {{#if editable}}
+  {{#if isOwner}}
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3 basic-grey">
         <div class="group">
@@ -77,7 +77,7 @@
 </template>
 <template name="character_attributes_tpl">
   <label><span>{{name}}</span>
-   {{#if editable}}
+   {{#if ../isOwner}}
       <input type="text" id="new-character-attribute-value" placeholder="New value..."
       value="{{value}}" />
     {{else}}
@@ -97,7 +97,7 @@
           <img class="avatarimg" src="{{this.url}}" alt="" id={{this._id}}>
         </div>
       </div>
-      {{#if editable}}
+      {{#if ../isOwner}}
         <div class="upload">
           <div class="title">Choose an image to upload</div>
           <input type="file" class="upload avatarInput"
@@ -115,7 +115,7 @@
       <img class="avatarimg" src="/img/character/blanck_avatar.png" alt="" id={{this._id}}>
     </div>
   </div>
-  {{#if editable}}
+  {{#if ../isOwner}}
     <div class="upload">
       <div class="title">Choose an image to upload</div>
       <input type="file" class="upload avatarInput" />

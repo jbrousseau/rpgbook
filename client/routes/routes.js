@@ -30,8 +30,9 @@ Router.map(function() {
     },
     data: function() { 
       var char = Characters.findOne({name: this.params.name});
-      Session.set('selected_character', char._id);
-      Session.set('character_user_id', char.user_id);
+      if (char) {
+        char.select();
+      }
       return char;
     }
   });
@@ -76,7 +77,14 @@ Router.map(function() {
       return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('groupposts'), Meteor.subscribe('images')];
     },
     data: function() { 
-      return Groups.findOne({name: this.params.name});
+      var group = Groups.findOne({name: this.params.name});
+      if (group) {
+        group.select();
+        if (group.isOwner()) {
+          Session.set('selected_character', 'master');
+        }
+      }
+      return group;
     }
   });
 });

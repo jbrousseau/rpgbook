@@ -11,7 +11,6 @@ Template.characters.rendered = function() {
 Template.characters.events({
   'mousedown .character': function (evt) { // select character
     this.select();
-    Session.set('character_user_id', this.user_id);
   },
   'click .display, click .avatardisplay': function (evt) {
     // prevent clicks on <a> from refreshing the page.
@@ -32,9 +31,7 @@ Template.characters.events(okCancelEvents(
     ok: function (text, evt) {
       Characters.insert({
         name: text,
-        user_id:  Meteor.userId(),
-        done: false,
-        timestamp: (new Date()).getTime()
+        done: false
       });
       evt.target.value = '';
     }

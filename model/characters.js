@@ -9,3 +9,5 @@ Characters = new Meteor.Collection("characters");
 
 Characters.selectable();
 Characters.avatarable();
+Characters.ownerable();
+Characters.timestampable();

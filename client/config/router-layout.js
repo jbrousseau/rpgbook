@@ -12,23 +12,17 @@ Router.configure({
     }
   },
   onBeforeAction: function() {
+   // $('#content-layout').addClass("animated fadeIn");
+   // $('footer').removeClass("hide");
     $(window).scrollTop(0);
     return $('meta[name^="description"]').remove();
+  },
+  onAfterAction: function() {
+    //$('#content-layout').addClass("animated fadeIn");
+    //return $('footer').removeClass("hide");
   }
   
 });
 
-animateContentOut = function() {
-    $('#content-layout').removeClass("animated fadeIn");
-    return $('footer').addClass("hide");
-}
-animateContentIn = function() {
-    $('#content-layout').addClass("animated fadeIn");
-    return $('footer').removeClass("hide");
-}
+Router.onBeforeAction('loading');
 
-//Router.onBeforeAction('loading');
-// define this as a global onAfterAction so it happens all the time
-Router.onAfterAction(animateContentIn);
-// define this as a global onBeforeAction so it happens all the time
-Router.onBeforeAction(animateContentOut);

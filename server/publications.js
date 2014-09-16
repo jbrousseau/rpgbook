@@ -31,10 +31,10 @@ Meteor.publish("rules", function () {
 // server
 Meteor.publish("userData", function () {
   if (!this.userId) {
-    return Meteor.users.find({}, {fields: {'profile': 1}});
+    return Meteor.users.find({}, {fields: {profile: 1, avatarfile_id: 1}});
   } else {
     return Meteor.users.find({_id: this.userId},
-                             {fields: {'profile': 1, 'emails': 1}});
+                             {fields: {profile: 1, avatarfile_id: 1, emails: 1}});
   }
 });
 Characters.allow({

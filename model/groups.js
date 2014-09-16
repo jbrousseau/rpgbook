@@ -8,3 +8,5 @@
 Groups = new Meteor.Collection("groups");
 
 Groups.selectable();
+Groups.ownerable();
+Groups.timestampable();

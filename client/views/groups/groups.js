@@ -35,10 +35,7 @@ Template.groups.events(okCancelEvents(
   '#new-group', {
     ok: function(text, evt) {
       Groups.insert({
-        name: text,
-        user_id: Meteor.userId(),
-        done: false,
-        timestamp: (new Date()).getTime()
+        name: text
       });
       evt.target.value = '';
     }
