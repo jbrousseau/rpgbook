@@ -2,8 +2,6 @@
 /* global Images model */
 Template.accountsettings.address = function() {
   var user = Meteor.user();
-  console.log(Meteor.users);
-  console.log(Characters);
   if (user && user.emails && user.emails[0] && user.emails[0].address) {
     return user.emails[0].address;
   }
@@ -47,7 +45,7 @@ Template.avataraccount.events({
           _id: userId
         }, {
           $set: {
-            'profile.avatarfile_id': fileObj._id
+            'avatarfile_id': fileObj._id
           }
         });
       }

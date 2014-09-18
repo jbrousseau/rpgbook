@@ -36,11 +36,3 @@ Template.header.navbarCustomHome = function() {
   }
   return '';
 };
-Template.entryAccountButtons_custom.avatarFile = function() {
-  var avatarFile = [{url:"/img/character/empty.gif"}];
-  var user = Meteor.user();
-  if (user && user.profile.avatarfile_id) {
-    avatarFile = Images.find({_id: user.profile.avatarfile_id});
-  }
-  return avatarFile;
-};

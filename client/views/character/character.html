@@ -104,22 +104,11 @@
           id="{{this._id}}" />
         </div>
         <label><span>Image avatar :</span> 
-        {{> FS.DeleteButton class="btn btn-danger"}} 
+        {{#if this._id}}
+          {{> FS.DeleteButton class="btn btn-danger"}} 
+        {{/if}}
         </label>
       {{/if}} 
     {{/if}} 
-  {{/with}} 
-  {{#unless avatarFile}}
-  <div class="centeravatar">
-    <div class="avatarimg avatarimgcenter">
-      <img class="avatarimg" src="/img/character/blanck_avatar.png" alt="" id={{this._id}}>
-    </div>
-  </div>
-  {{#if ../isOwner}}
-    <div class="upload">
-      <div class="title">Choose an image to upload</div>
-      <input type="file" class="upload avatarInput" />
-     </div>
-   {{/if}} 
-  {{/unless}}
+  {{/with}}
 </template>

@@ -17,6 +17,10 @@ Build on Meteor.js
 ```sh
 sudo curl https://install.meteor.com | /bin/sh
 ```
+**download graphicsmagick :**
+```sh
+wget ftp://ftp.icm.edu.pl/pub/unix/graphics/GraphicsMagick/GraphicsMagick-LATEST.tar.gz
+```
 **install graphicsmagick :**
 ```sh
 http://www.graphicsmagick.org/INSTALL-unix.html

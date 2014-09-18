@@ -7,7 +7,7 @@
 /* global Characters Meteor */
 Characters = new Meteor.Collection("characters");
 
+Characters.timestampable();
 Characters.selectable();
 Characters.avatarable();
 Characters.ownerable();
-Characters.timestampable();
