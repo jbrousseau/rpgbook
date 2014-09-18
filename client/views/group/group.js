@@ -19,7 +19,7 @@ Template.group.characters_group = function() {
   return chars;
 };
 Template.group.gamemaster_name = function() {
-  var user = this && this.owner();
+  var user = this.owner();
   if (user && user.profile) {
     return user.profile.firstname + ' ' + user.profile.lastname;
   }
@@ -31,12 +31,7 @@ Template.group.avatarFileGM = function() {
   var avatarFile = [{
     url: "/img/character/empty.gif"
   }];
-  var user = null;
-  if (Session.get("owner_group_id")) {
-    user = Meteor.users.findOne({
-      _id: Session.get("owner_group_id")
-    });
-  }
+  var user = this.owner();
   if (user && user.profile.avatarfile_id) {
     avatarFile = Images.find({
       _id: user.profile.avatarfile_id
@@ -86,11 +81,11 @@ var rollDice = function(numberMax) {
   var result = Math.floor((Math.random() * numberMax) + 1);
   Groupposts.insert({
     txt: 'd' + numberMax + ' roll result : ' + result,
-    group_id: Session.get('selected_group'),
+    group_id: Groups.selectedId(),
     user_id: Meteor.userId(),
     type: 'roll',
     visibility: 'public',
-    owner_id: Session.get('selected_character'),
+    owner_id: Characters.selectedId(),
     timestamp: (new Date()).getTime()
   });
 };

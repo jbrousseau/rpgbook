@@ -41,7 +41,7 @@
   </div>
 </template>
 <template name="avataraccount">
-  {{#each avatarFile}}
+  {{#with avatarFile}}
     {{#unless this.isUploaded}} 
       <i class="fa fa-refresh fa-spin"></i>
     {{/unless}} 
@@ -59,8 +59,8 @@
       <span>Image avatar :</span> 
       {{> FS.DeleteButton class="btn btn-danger"}} 
     {{/if}} 
-  {{/each}} 
-  {{#unless avatarFile.count}}
+  {{/with}} 
+  {{#unless avatarFile}}
   <div class="avatarimg">
     <img class="avatarimg" src="/img/character/blanck_avatar.png" alt="" id={{this._id}}>
   </div>

@@ -1,3 +1,4 @@
+/* global Meteor AccountsEntry */
 Meteor.startup(function() {
   AccountsEntry.config({
     homeRoute: '/',

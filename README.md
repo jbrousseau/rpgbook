@@ -48,7 +48,7 @@ $ meteor --port XXXX --settings private/local-settings.json
 //~/.bashrc
 export MONGO_URL=mongodb://<login>:<password>@<url mongodb>
 //you can also create an alias to run the application :
-alias mt="meteor --port 8080 --settings private/local-settings.json"
+alias mt="meteor --port 0.0.0.0:8080 --settings private/local-settings.json"
 
 ## License
 

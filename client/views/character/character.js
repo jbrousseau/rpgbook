@@ -9,10 +9,11 @@ Template.character.rendered = function() {
 };
 
 Template.character.listrules = function() {
+  console.log(Meteor.users);
   return Rules.find({});
 };
 Template.character.chooserule = function() {
-  if (!this.rules_name && this && this.isOwner() ) {
+  if (!this.rules_name && this.isOwner() ) {
     return true;
   } else {
     return false;
@@ -94,10 +95,13 @@ Template.character.events(okCancelEvents(
 
       evt.target.value = text;
     }
-  },
+  })
+);
+Template.character.events(okCancelEvents(
   '#new-character-attribute',
   {
     ok: function (text, evt, template) {
+      
       Characters.update(Characters.selectedId(), {$push:{ characterattributes: {name: text}}});
 
       evt.target.value = '';

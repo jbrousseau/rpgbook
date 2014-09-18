@@ -20,6 +20,12 @@ Router.configure({
   onAfterAction: function() {
     //$('#content-layout').addClass("animated fadeIn");
     //return $('footer').removeClass("hide");
+  },
+  load: function() {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 400);
+    $('.content').hide().fadeIn(800);
   }
   
 });

@@ -19,10 +19,10 @@ mrt:bootstrap-3
 matteodem:easy-search
 joshowens:accounts-entry
 iron:router
-jbrousseau:meteor-collection-behaviours
 cfs:standard-packages
 cfs:gridfs
 cfs:graphicsmagick
 cfs:ui
 cfs:ejson-file
+jbrousseau:meteor-collection-behaviours
 
