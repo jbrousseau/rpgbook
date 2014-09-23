@@ -1,4 +1,4 @@
-/* global Template Meteor Session Router */
+/* global Template Meteor Router */
 /* global Characters Images okCancelEvents */
 Template.characters.rendered = function() {
   document.title = "Characters list";

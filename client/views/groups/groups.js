@@ -1,4 +1,4 @@
-/* global Template, Groups Session Meteor Router okCancelEvents*/
+/* global Template, Groups Meteor Router okCancelEvents*/
 Template.groups.rendered = function() {
   document.title = "groups list";
   //Groups.unSelect();

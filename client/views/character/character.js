@@ -1,4 +1,4 @@
-/* global Meteor Template Session Router */
+/* global Meteor Template Router */
 /* global Groups Characters Images Rules okCancelEvents */
 Template.character.rendered = function() {
   document.title = '';
@@ -9,7 +9,6 @@ Template.character.rendered = function() {
 };
 
 Template.character.listrules = function() {
-  console.log(Meteor.users);
   return Rules.find({});
 };
 Template.character.chooserule = function() {
@@ -145,15 +144,6 @@ Template.character_attributes_tpl.events(okCancelEvents(
 
 Template.avatarcharacter.events({
   'change .avatarInput': function(event, template) {
-    var charId = Characters.selectedId();
-    var files = event.target.files;
-    if (event.target.id) {
-      Images.remove(event.target.id);
-    }
-    Images.insert(files[0], function(err, fileObj) {
-      if (charId) {
-         Characters.update(charId,  {$set: {'avatarfile_id': fileObj._id }});
-      }
-    });
+    Characters.changeAvatar(Characters.selectedId(), event.target.files[0], event.target.id);
   }
 });

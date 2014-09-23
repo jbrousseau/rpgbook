@@ -33,22 +33,6 @@ Template.accountsettings.events({
 
 Template.avataraccount.events({
   'change .avatarInput': function(event, template) {
-
-    var userId = Meteor.userId();
-    var files = event.target.files;
-    if (event.target.id) {
-      Images.remove(event.target.id);
-    }
-    Images.insert(files[0], function(err, fileObj) {
-      if (userId) {
-        Meteor.users.update({
-          _id: userId
-        }, {
-          $set: {
-            'avatarfile_id': fileObj._id
-          }
-        });
-      }
-    });
+    Meteor.users.changeAvatar(Meteor.userId(), event.target.files[0], event.target.id);
   }
 });

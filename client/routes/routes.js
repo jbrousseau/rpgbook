@@ -15,7 +15,7 @@ Router.map(function() {
       return AccountsEntry.signInRequired(this);
     },
     waitOn: function() {
-      return [Meteor.subscribe('characters'), Meteor.subscribe('images')];
+      return [Meteor.subscribe('characters'), Meteor.subscribe('images'), Meteor.subscribe('userData')];
     },
     data: function() { 
       return { charactersList: Characters.find({user_id: Meteor.userId()}) }; 
@@ -26,7 +26,7 @@ Router.map(function() {
     waitOn: function() {
       return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), 
       Meteor.subscribe('characterposts'), Meteor.subscribe('images'), 
-      Meteor.subscribe('rules')];
+      Meteor.subscribe('rules'), Meteor.subscribe('userData')];
     },
     data: function() { 
       var char = Characters.findOne({name: this.params.name});
@@ -38,7 +38,7 @@ Router.map(function() {
   });
   this.route('about', {
    waitOn: function() {
-      return [Meteor.subscribe('images')];
+      return [Meteor.subscribe('images'), Meteor.subscribe('userData')];
     },
   });
   this.route('blog', {
@@ -62,7 +62,7 @@ Router.map(function() {
       return AccountsEntry.signInRequired(this);
     },
     waitOn: function() {
-      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('images')];
+      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('images'), Meteor.subscribe('userData')];
     },
     data: function() { 
       return { groupsList: Groups.find({user_id: Meteor.userId()}) }; 
@@ -74,7 +74,7 @@ Router.map(function() {
       return AccountsEntry.signInRequired(this);
     },
     waitOn: function() {
-      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('groupposts'), Meteor.subscribe('images')];
+      return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('groupposts'), Meteor.subscribe('images'), Meteor.subscribe('userData')];
     },
     data: function() { 
       var group = Groups.findOne({name: this.params.name});

@@ -1,4 +1,4 @@
-/* global Template Session Meteor User */
+/* global Template Meteor User */
 /* global Characters Groupposts okCancelEvents moment Images Groups*/
 Template.group.rendered = function() {
   document.title = this.name;
@@ -121,7 +121,7 @@ Template.group.events(okCancelEvents('#new-post', {
       user_id: Meteor.userId(),
       type: 'text',
       visibility: template.find('#visibility-post').value,
-      owner_id: Session.get('selected_character'),
+      owner_id: Characters.selectedId(),
       timestamp: (new Date()).getTime()
     });
     evt.target.value = '';
@@ -144,7 +144,7 @@ Template.grouppost.owner_name = function() {
   }
 };
 Template.grouppost.group_post_rights = function() {
-  if (this.visibility == 'public' || this.visibility == Session.get('selected_character') || this.user_id == Meteor.userId()) {
+  if (this.visibility == 'public' || this.visibility == Characters.selectedId() || this.user_id == Meteor.userId()) {
     return true;
   }
   else {

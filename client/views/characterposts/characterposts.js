@@ -1,24 +1,12 @@
-/* global Meteor Template Session */
+/* global Meteor Template */
 /* global Groups Characters Characterposts Images okCancelEvents */
-var editable = function() {
-  var userId = Meteor.userId();
-  var character_user_id = Session.get("character_user_id");
-  if (character_user_id == userId) {
-    return true;
-  } else {
-    return false;
-  }
-};
-Template.characterposts.editable = function() {
-  return editable();
-};
 
 Template.characterposts.character_posts = function() {
   var posts = null;
-  if (Session.get("current_group")) {
+  if (Groups.selectedId()) {
     posts = Characterposts.find({
       character_id: {
-        $in: Session.get("current_group").character_ids
+        $in: Groups.selectedected().character_ids
       }
     }, {
       sort: {
@@ -28,7 +16,7 @@ Template.characterposts.character_posts = function() {
   }
   else {
     posts = Characterposts.find({
-      character_id: Session.get('selected_character')
+      character_id: Characters.selectedId()
     }, {
       sort: {
         timestamp: -1
@@ -41,10 +29,10 @@ Template.characterposts.events(okCancelEvents('#new-post', {
   ok: function(text, evt, template) {
     Characterposts.insert({
       txt: text,
-      character_id: Session.get('selected_character'),
+      character_id: Characters.selectedId(),
       user_id: Meteor.userId(),
       visibility: template.find('#visibility-post').value,
-      owner_id: Session.get('selected_character'),
+      owner_id: Characters.selectedId(),
       timestamp: (new Date()).getTime()
     });
     evt.target.value = '';
@@ -61,13 +49,13 @@ Template.characterpost.owner_name = function() {
   }
 };
 Template.characterpost.character_post_rights = function() {
-  var character_user_id = Session.get("character_user_id");
+  var characterSelected = Characters.selected();
   
-  if ((this.character_id == Session.get('selected_character') && 
-    character_user_id == Meteor.userId())
+  if ((this.character_id == characterSelected._id && 
+    characterSelected.user_id == Meteor.userId())
   || this.visibility == 'public' 
   || (this.visibility == 'group' &&
-  character_user_id == Meteor.userId())) {
+  characterSelected.user_id == Meteor.userId())) {
     return true;
   }
   else {
