@@ -21,15 +21,19 @@
         </div>
       </div>
       <div class="basic-grey">
-        <input type="image" src="/img/dice/d4.png" class="roll4" alt="Roll a d4 dice" />
-        <input type="image" src="/img/dice/d6.png" class="roll6" alt="Roll a d6 dice" />
-        <input type="image" src="/img/dice/d8.png" class="roll8" alt="Roll a d8 dice" />
-        <input type="image" src="/img/dice/d10.png" class="roll10" alt="Roll a d10 dice" />
-        <input type="image" src="/img/dice/d12.png" class="roll12" alt="Roll a d12 dice" />
-        <input type="image" src="/img/dice/d20.png" class="roll20" alt="Roll a d20 dice" />
-        <input type="image" src="/img/dice/d100.png" class="roll100" alt="Roll a d100 dice" />
+        <input type="image" src="/img/dice/d4.png" class="roll4" id="roll4" alt="Roll a d4 dice" />
+        <input type="image" src="/img/dice/d6.png" class="roll6" id="roll6" alt="Roll a d6 dice" />
+        <input type="image" src="/img/dice/d8.png" class="roll8" id="roll8" alt="Roll a d8 dice" />
+        <input type="image" src="/img/dice/d10.png" class="roll10" id="roll10" alt="Roll a d10 dice" />
+        <input type="image" src="/img/dice/d12.png" class="roll12" id="roll12" alt="Roll a d12 dice" />
+        <input type="image" src="/img/dice/d20.png" class="roll20" id="roll20" alt="Roll a d20 dice" />
+        <input type="image" src="/img/dice/d100.png" class="roll100" id="roll100" alt="Roll a d100 dice" />
       </div>
      </div>
+     <div id="canvas"></div> 
+     <script type="text/javascript" defer="defer">
+        dice_initialize(document.body, window.innerWidth - 1, window.innerHeight - 1);
+     </script>
      <div class="col-sm-6">
      <div class="basic-grey">
       <h1>Posts</h1>

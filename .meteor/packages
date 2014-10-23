@@ -25,4 +25,5 @@ cfs:graphicsmagick
 cfs:ui
 cfs:ejson-file
 meteor-collection-behaviours
+dice-roll-3d
 

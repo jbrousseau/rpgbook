@@ -39,6 +39,7 @@ ctl-helper@1.0.3
 ctl@1.0.1
 ddp@1.0.8
 deps@1.0.3
+dice-roll-3d@1.0.0
 ejson@1.0.2
 email@1.0.2
 facebook@1.1.0

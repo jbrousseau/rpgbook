@@ -6,7 +6,7 @@ Template.characterposts.character_posts = function() {
   if (Groups.selectedId()) {
     posts = Characterposts.find({
       character_id: {
-        $in: Groups.selectedected().character_ids
+        $in: Groups.selected().character_ids
       }
     }, {
       sort: {

@@ -34,7 +34,7 @@
 <template name="entryAccountButtons_custom">
   {{#if currentUser}}
    <li class="navbar-img">
-        <a class="navbar-img" href="{{pathFor 'accountsettings'}}"><img src="{{this.avatarFileUrl}}" alt="" class="avataruser"></a>
+        <a class="navbar-img" href="{{pathFor 'accountsettings'}}"><img src="{{currentUser.avatarFileUrl}}" alt="" class="avataruser"></a>
     </li>
     <li class="navbar-text">{{signedInAs}}</li>
     <li><a href="/sign-out">{{t9n "signOut"}}</a></li>
