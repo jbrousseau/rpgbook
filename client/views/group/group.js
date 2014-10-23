@@ -7,6 +7,13 @@ Template.group.rendered = function() {
     content: "Detail of group " + this.name
   }).appendTo("head");
 };
+Template.group.created = function() {
+   $('head').append('<script type="text/javascript" src="js/three.min.js">');
+   $('head').append('<script type="text/javascript" src="js/cannon.min.js">');
+   $('head').append('<script type="text/javascript" src="js/teal.js">');
+   $('head').append('<script type="text/javascript" src="js/dice.js">');
+   $('head').append('<script type="text/javascript" src="js/main.js">');
+}
 Template.group.characters_group = function() {
   var chars = null;
   if (this.character_ids) {
