@@ -7,16 +7,16 @@
 /* global Blogposts model */
 /* global Images model */
 Router.map(function() {
-  this.route('home', {
+  Router.route('home', {
     path: '/',
     waitOn: function() {
       return [Meteor.subscribe('characters'), Meteor.subscribe('images')];
     }
   });
-  this.route('characters', {
-    onBeforeAction: function() {
-      return AccountsEntry.signInRequired(this);
-    },
+  Router.route('characters', {
+    /*onBeforeAction: function() {
+      AccountsEntry.signInRequired(this);
+    },*/
     waitOn: function() {
       return [Meteor.subscribe('characters'), Meteor.subscribe('images')];
     },
@@ -24,7 +24,7 @@ Router.map(function() {
       return { charactersList: Characters.find({user_id: Meteor.userId()}) }; 
     }
   });
-  this.route('character', {
+  Router.route('character', {
     path: '/character/:name',
     waitOn: function() {
       return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), 
@@ -39,20 +39,20 @@ Router.map(function() {
       return char;
     }
   });
-  this.route('about', {
+  Router.route('about', {
    waitOn: function() {
       return [Meteor.subscribe('images')];
     },
   });
-  this.route('blog', {
+  Router.route('blog', {
     waitOn: function() {
       return [Meteor.subscribe('blogposts'), Meteor.subscribe('userData'), Meteor.subscribe('images')];
     },
   });
-  this.route('accountsettings', {
-    onBeforeAction: function() {
-      return AccountsEntry.signInRequired(this);
-    },
+  Router.route('accountsettings', {
+    /*onBeforeAction: function() {
+       AccountsEntry.signInRequired(this);
+    },*/
     waitOn: function() {
       return [Meteor.subscribe('images'), Meteor.subscribe('userData')];
     },
@@ -60,10 +60,10 @@ Router.map(function() {
       return Meteor.user() ; 
     }
   });
-  this.route('groups', {
-    onBeforeAction: function() {
-      return AccountsEntry.signInRequired(this);
-    },
+  Router.route('groups', {
+    /*onBeforeAction: function() {
+       AccountsEntry.signInRequired(this);
+    },*/
     waitOn: function() {
       return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('images')];
     },
@@ -71,11 +71,11 @@ Router.map(function() {
       return { groupsList: Groups.find({user_id: Meteor.userId()}) }; 
     }
   });
-  this.route('group', {
+  Router.route('group', {
     path: '/group/:name',
-    onBeforeAction: function() {
-      return AccountsEntry.signInRequired(this);
-    },
+    /*onBeforeAction: function() {
+       AccountsEntry.signInRequired(this);
+    },*/
     waitOn: function() {
       return [Meteor.subscribe('groups'), Meteor.subscribe('characters'), Meteor.subscribe('groupposts'), Meteor.subscribe('images')];
     },
